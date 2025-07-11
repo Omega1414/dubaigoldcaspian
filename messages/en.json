@@ -1,0 +1,21 @@
+{
+    "LocaleLayout": {
+      "title": "Welcome",
+      "description": "This is the homepage"
+    },
+    "LocaleSwitcher": {
+      "label": "Change language",
+      "locale": "{locale, select, ru {RU} en {EN} other {Unknown}}"
+    },
+      "collections": {
+        "title": "Our Collections",
+        "seeCollection": "View Collection",
+        "rings": "Rings",
+        "earrings": "Earrings",
+        "necklaces": "Necklaces",
+        "bracelets": "Bracelets",
+        "backToCollections": "Back to collections"
+      }
+    
+  }
+  

@@ -1,0 +1,11 @@
+.fancybox__toolbar {
+    top: 20px;
+    right: 20px;
+    bottom: auto;
+    left: auto;
+  }
+  
+  .fancybox__button--close {
+    top: 0;
+    right: 0;
+  }

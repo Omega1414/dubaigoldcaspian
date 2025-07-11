@@ -1,0 +1,11 @@
+{
+    "LocaleLayout": {
+      "title": "Xoş gəlmisiniz",
+      "description": "Bura əsas səhifədir"
+    },
+    "LocaleSwitcher": {
+      "label": "Dili dəyiş",
+      "locale": "{locale, select, ru {RU} en {EN} other {Unknown}}"
+    }
+  }
+  

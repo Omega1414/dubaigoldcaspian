@@ -1,0 +1,7 @@
+video banner (welcome and enjoy)
+categories (transition to each category)
+video factories (factories info)
+about (info)
+ contacts (contacts info + map)
+
+id for every item, order via whatsapp with complete text

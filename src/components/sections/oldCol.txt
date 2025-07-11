@@ -1,0 +1,94 @@
+"use client"
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useTranslations } from 'next-intl';
+
+const CollectionSection = () => {
+  const t = useTranslations('Collections');
+  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+
+  const collectionItems = [
+    {
+      id: 1,
+      title: t('rings'),
+      hoverText: t('seeCollection'),
+      bgImage: '/ringCol.png',
+      link: '/rings-collection'
+    },
+    {
+      id: 2,
+      title: t('earrings'),
+      hoverText: t('seeCollection'),
+      bgImage: '/earCol.png',
+      link: '/earrings-collection'
+    },
+    {
+      id: 3,
+      title: t('necklaces'),
+      hoverText: t('seeCollection'),
+      bgImage: '/neckCol.png',
+      link: '/necklaces-collection'
+    },
+    {
+      id: 4,
+      title: t('bracelets'),
+      hoverText: t('seeCollection'),
+      bgImage: '/bracCol.png',
+      link: '/bracelets-collection'
+    }
+  ];
+
+  return (
+    <section id="collections" className="py-16 md:py-24 px-4 xl:h-screen">
+      <div className="max-w-7xl 2xl:max-w-full mx-auto">
+        <h2 className="text-center text-4xl font-serif mb-8 md:mb-16">{t('title')}</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 ">
+          {collectionItems.map((item) => (
+            <Link 
+              href={item.link} 
+              key={item.id}
+              legacyBehavior
+            >
+              <a
+                className="relative w-full aspect-[3/4] md:aspect-square 2xl:h-[60vh] overflow-hidden group mx-auto" 
+                onMouseEnter={() => setHoveredItem(item.id)}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                  <Image
+                    src={item.bgImage}
+                    alt={item.title}
+                    fill
+                    className={`object-cover transition-all rounded-2xl duration-700 ${hoveredItem === item.id ? 'opacity-100 scale-105' : 'opacity-70'}
+                    ${item.id === 1 ? 'object-[center_30%] md:object-center' : ''}
+                    ${item.id === 2 ? 'object-[center_40%] md:object-center' : ''}`}
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-500" /> 
+                </div>
+
+                {/* Title */}
+                <div 
+                  className={`absolute font-cormorant font-medium  antialiased top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-3xl  text-center transition-all duration-500 ${hoveredItem === item.id ? '-translate-y-[90%]' : ''}`} 
+                >
+                  {item.title}
+                </div>
+
+                {/* Hover Text */}
+                <div 
+                  className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xl font-cormorant font-medium text-center transition-all duration-500 ${hoveredItem === item.id ? 'opacity-100 translate-y-[50%]' : 'opacity-0 translate-y-0'}`} 
+                >
+                  {item.hoverText}
+                </div>
+              </a>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default CollectionSection;
