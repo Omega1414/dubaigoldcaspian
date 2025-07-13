@@ -7,7 +7,7 @@ import { ReactNode } from 'react';
 import { Cormorant_Garamond, DM_Serif_Display, Inter, Josefin_Sans, Playfair_Display, Raleway } from 'next/font/google';
 import { routing } from '../../i18n/routing';
 import '../globals.css';
-import { ThemeProvider } from '../theme-provider';
+
 
 
 
@@ -74,11 +74,11 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale}  className={`${cormorant.variable} ${josefin.variable} ${dmSerif.variable} ${raleway.variable} ${playfair.variable} antialiased`}>
       <body >
-      <ThemeProvider>
+    
         <NextIntlClientProvider locale={locale}>
      {children}
         </NextIntlClientProvider>
-        </ThemeProvider>
+       
       </body>
     </html>
   );

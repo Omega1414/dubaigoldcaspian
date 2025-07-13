@@ -13,7 +13,7 @@ export default function Home() {
     <div className="relative">
       <Navbar />
       <HomeSection />
-      <div className="relative z-10 space-y-8 md:space-y-16 "> {/* Added spacing between sections */}
+      <div className="relative bg-white z-10 space-y-8 md:space-y-16 "> {/* Added spacing between sections */}
         <CollectionSection />
         <AboutSection />
         <FactorySection />

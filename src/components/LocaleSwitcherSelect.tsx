@@ -51,8 +51,8 @@ export default function LocaleSwitcherSelect({
       <div className="relative inline-block">
         <select
           className={clsx(
-            'bg-white/5 dark:bg-gray-800/5 border border-white/30 dark:border-gray-700/80',
-            'text-sm rounded px-2 py-2 text-gray-800 dark:text-gray-200 w-[60px] ',
+            'bg-white/5 border border-white/30 ',
+            'text-sm rounded px-2 py-2 text-gray-800  w-[60px] ',
             'appearance-none pr-6' // Make room for custom arrow
           )}
           defaultValue={defaultValue}
@@ -64,7 +64,7 @@ export default function LocaleSwitcherSelect({
         {/* Custom dropdown arrow */}
         <div className="absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none">
           <svg
-            className="w-4 h-4 text-gray-800 dark:text-gray-200"
+            className="w-4 h-4 text-gray-800 "
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -86,10 +86,7 @@ export default function LocaleSwitcherSelect({
           background-color: white;
           color: black;
         }
-        .dark select option {
-          background-color: #1f2937; /* dark:bg-gray-800 */
-          color: #e5e7eb; /* dark:text-gray-200 */
-        }
+       
       `}</style>
     </label>
   );
