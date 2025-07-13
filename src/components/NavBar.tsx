@@ -51,7 +51,7 @@ export default function Navbar() {
         <div className="w-[110px] h-auto"> {/* Adjust height/width as needed */}
   <Link href="/">
     <Image
-      src="/remove.png"
+      src="/logo.png"
       alt="MyLogo"
       width={200}  // Set your desired display width
       height={48}  // Set your desired display height (maintain aspect ratio)

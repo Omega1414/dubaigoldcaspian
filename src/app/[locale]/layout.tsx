@@ -59,6 +59,17 @@ export async function generateMetadata(props: Omit<Props, 'children'>) {
 
   return {
     title: t('title'),
+    icons: {
+      icon: [
+        { url: '/favicon.ico' },
+        { url: '/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
+        { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+        { url: '/apple-touch-icon.png', sizes: '180x180', rel: 'apple-touch-icon' },
+        { url: '/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
+        { url: '/android-chrome-384x384.png', sizes: '384x384', type: 'image/png' },
+      ],
+    },
+    manifest: '/site.webmanifest',
   };
 }
 

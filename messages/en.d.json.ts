@@ -3,7 +3,7 @@
 
 declare const messages: {
     "LocaleLayout": {
-      "title": "Welcome",
+      "title": "DubaiGold",
       "description": "This is the homepage"
     },
     "LocaleSwitcher": {

@@ -23,7 +23,26 @@ const CollectionSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState<{ [key: string]: boolean }>({});
   const swiperRef = useRef<SwiperCore>();
-
+  useEffect(() => {
+    const handlePopState = (e: PopStateEvent) => {
+      if (selectedCollection) {
+        handleBackClick();
+        // Tarixi əvvəlki halına qaytarırıq ki, ikinci dəfə back basanda səhifədən çıxmasın
+        window.history.pushState(null, '');
+      }
+    };
+  
+    if (selectedCollection) {
+      // Əgər seçilibsə, tarixə bir səviyyə əlavə et
+      window.history.pushState(null, '');
+      window.addEventListener('popstate', handlePopState);
+    }
+  
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [selectedCollection]);
+  
   useEffect(() => {
     Fancybox.bind('[data-fancybox]', {
       Thumbs: false,
@@ -206,6 +225,7 @@ const CollectionSection = () => {
                         src={item.bgImage}
                         alt={t(item.titleKey)}
                         fill
+                        priority
                         className={`
                           object-cover rounded-2xl transition-all duration-700
                           ${hoveredItem === item.id ? 'opacity-100 scale-105 shadow-xl' : 'opacity-100'}
@@ -306,7 +326,7 @@ const CollectionSection = () => {
                   onSlideChange={handleSlideChange}
                   breakpoints={{
                     1024: {
-                      slidesPerView: 2,
+                      slidesPerView: 3,
                     },
                     1280: {
                       slidesPerView: 3,
@@ -324,7 +344,7 @@ const CollectionSection = () => {
                       onClick={handleSlideClick}
                     >
                       <div
-                        className="relative w-full h-64 md:h-72 lg:h-[22rem] xl:h-[14rem] 2xl:h-[30rem] rounded-lg overflow-hidden shadow-lg cursor-zoom-in"
+                        className="relative w-full h-64 md:h-72 lg:h-[22rem] xl:h-[24rem] 2xl:h-[30rem] rounded-lg overflow-hidden shadow-lg cursor-zoom-in"
                         data-fancybox="gallery"
                         data-src={image.url}
                         data-caption={image.alt}

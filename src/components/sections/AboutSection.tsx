@@ -73,10 +73,10 @@ const AboutSection = () => {
             playsInline
             className="absolute top-0 left-0 w-full h-full object-cover"
           >
-            <source src="/banner.mp4" type="video/mp4" />
+            <source src="/craft.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
             <motion.h1
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -138,12 +138,12 @@ const AboutSection = () => {
             />
           </div>
           <div className="w-full md:w-1/2 lg:max-w-md 2xl: max-w-xl 3xl:max-w-2xl text-center">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-cormorant font-medium text-gray-700 mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-3xl 2xl:text-4xl font-cormorant font-medium text-gray-700 mb-6">
               {t('tourTitle')}
             </h2>
             <motion.p
               variants={textVariants}
-              className="font-cormorant font-medium text-gray-700 text-lg md:text-xl lg:text-2xl max-w-xl mx-auto"
+              className="font-cormorant font-medium text-gray-700 text-lg md:text-xl lg:text-xl 2xl:text-2xl max-w-xl mx-auto"
             >
               {t('tourDescription')}
             </motion.p>
@@ -168,12 +168,12 @@ const AboutSection = () => {
             />
           </div>
           <div className="w-full md:w-1/2 lg:max-w-md 2xl: max-w-xl 3xl:max-w-2xl text-center">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-cormorant font-medium text-gray-700 mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-3xl 2xl:text-4xl font-cormorant font-medium text-gray-700 mb-6">
               {t('designTitle')}
             </h2>
             <motion.p
               variants={textVariants}
-              className="font-cormorant font-medium text-gray-700 text-lg md:text-xl lg:text-2xl max-w-xl mx-auto"
+              className="font-cormorant font-medium text-gray-700 text-lg md:text-xl lg:text-xl 2xl:text-2xl max-w-xl mx-auto"
             >
               {t('designDescription')}
             </motion.p>

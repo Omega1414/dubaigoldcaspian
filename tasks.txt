@@ -1,7 +1,6 @@
 
- contacts (contacts info + map)
 
 
 tomorrow:
-finish media (upload all)
-finish about (video)
+full page carousel
+finish contacts
