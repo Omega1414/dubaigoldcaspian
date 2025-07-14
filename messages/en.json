@@ -1,36 +1,50 @@
 {
-    "LocaleLayout": {
-      "title": "DubaiGold",
-      "description": "This is the homepage"
+  "LocaleLayout": {
+    "title": "DubaiGold",
+    "description": "This is the homepage"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, ru {RU} en {EN} other {Unknown}}"
+  },
+  "collections": {
+    "title": "Discover Timeless Pieces",
+    "seeCollection": "View Collection",
+    "rings": "Rings",
+    "earrings": "Earrings",
+    "necklaces": "Necklaces",
+    "bracelets": "Bracelets",
+    "backToCollections": "Back to collections",
+    "craftsmanshipDescription": "Each piece is handcrafted with precision and passion, using only the finest materials to ensure lasting beauty and elegance."
+  },
+  "about": {
+    "heroTitle": "Shaping Dreams into Exquisite Jewellery",
+    "historyTitle": "Our Legacy",
+    "historyDescription": "Caspian Jewellery is a jewellery company based in the United Arab Emirates (Dubai) specializing in diamond and gold jewellery for over 25 years, established in 1997.",
+    "tourTitle": "Experience Our Craft",
+    "tourDescription": "Every guest visiting the factory has an opportunity to take a production tour, acknowledge and witness the essence and elegance of jewellery manufacturing with semi precious colour stones, as well as precious diamond stones in all its shapes and designs.",
+    "designTitle": "Where Imagination Becomes Jewellery",
+    "designDescription": "The experience collected throughout many years of manufacturing brought our designs to a whole new level. Everyone has an opportunity to dig into their imagination and customize their own jewellery. It is as simple as drawing your desired jewellery item on a piece of paper and handing it to our CAD team to make your dream jewellery. After a few awaited days, you can finally try on the jewellery of your fantasies!",
+    "transferTitle": "Complimentary Transfer Service",
+    "transferDescription": "Our company provides free transfer services for guests from their location to our factory and back.",
+    "ctaButton": "Contact Us"
+  },
+  "home": {
+    "text1": {
+      "title": "Crafting Timeless Elegance",
+      "subtitle": "Discover the Art of Caspian Jewellery"
     },
-    "LocaleSwitcher": {
-      "label": "Change language",
-      "locale": "{locale, select, ru {RU} en {EN} other {Unknown}}"
+    "text2": {
+      "title": "Shaping Dreams into Jewellery",
+      "subtitle": "Handcrafted with Precision Since 1997"
     },
-      "collections": {
-        "title": "Discover Timeless Pieces",
-        "seeCollection": "View Collection",
-        "rings": "Rings",
-        "earrings": "Earrings",
-        "necklaces": "Necklaces",
-        "bracelets": "Bracelets",
-        "backToCollections": "Back to collections",
-        "craftsmanshipDescription": "Each piece is handcrafted with precision and passion, using only the finest materials to ensure lasting beauty and elegance."
-      },
-      
-        "about": {
-          "heroTitle": "Shaping Dreams into Exquisite Jewellery",
-          "historyTitle": "Our Legacy",
-          "historyDescription": "Caspian Jewellery is a jewellery company based in the United Arab Emirates (Dubai) specializing in diamond and gold jewellery for over 25 years, established in 1997.",
-          "tourTitle": "Experience Our Craft",
-          "tourDescription": "Every guest visiting the factory has an opportunity to take a production tour, acknowledge and witness the essence and elegance of jewellery manufacturing with semi precious colour stones, as well as precious diamond stones in all its shapes and designs.",
-          "designTitle": "Where Imagination Becomes Jewellery",
-          "designDescription": "Caspian is the originator of more than 50 000 different jewellery designs. The experience collected throughout many years of manufacturing brought our designs to a whole new different level. Everyone has an opportunity to dig into their imagination and customize their own jewellery. It is as simple as drawing your desired jewellery item on a piece of paper and handing it to our CAD team to make your dream jewellery. After a few awaited days, you can finally try on the jewellery of your fantasies!",
-          "transferTitle": "Complimentary Transfer Service",
-          "transferDescription": "Our company provides free transfer services for guests from their location to our factory and back.",
-          "ctaButton": "Contact Us"
-        }
-      
-    
+    "text3": {
+      "title": "Your Vision, Our Craft",
+      "subtitle": "Customize Your Unique Masterpiece"
+    },
+    "text4": {
+      "title": "Experience Our Legacy",
+      "subtitle": "Explore 25 Years of Exquisite Designs"
+    }
   }
-  
+}

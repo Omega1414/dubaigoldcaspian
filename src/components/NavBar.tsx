@@ -103,14 +103,14 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden mt-4 space-y-4 flex flex-col bg-white/70  p-4 rounded shadow"
+            className="md:hidden mt-4 font-work-sans font-medium space-y-4 flex flex-col bg-white/70  p-4 rounded shadow"
           >
            {['home', 'collections', 'company-craft', 'contacts'].map((section) => (
               <Link 
                 key={section}
                 href={`#${section}`}
                 onClick={() => handleSectionClick(section)}
-                className="hover:text-blue-600  transition py-2"
+                className="hover:text-white transition py-2"
               >
                 {section === 'company-craft' ? 'Company & Craft' : section.charAt(0).toUpperCase() + section.slice(1)}
               </Link>

@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useRef } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -17,8 +15,15 @@ const Map = () => {
       zoom: 16,
     });
 
+    const popup = new maplibregl.Popup({ offset: 25 }).setHTML(`
+      <a href="https://www.google.com/maps?q=25.05864911447676,55.13582628336014" target="_blank" rel="noopener noreferrer">
+        Open in Google Maps
+      </a>
+    `);
+
     new maplibregl.Marker({ color: '#C084FC' })
       .setLngLat([55.13582628336014, 25.05864911447676])
+      .setPopup(popup) // <-- Əlavə olunur
       .addTo(map);
 
     return () => map.remove();

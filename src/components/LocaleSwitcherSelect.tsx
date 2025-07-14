@@ -56,7 +56,7 @@ export default function LocaleSwitcherSelect({
         <select
           className={clsx(
             scrolled
-              ? 'bg-white/70 border border-gray-300 text-gray-700'
+              ? 'bg-white/20 border border-gray-400 text-gray-700'
               : 'bg-white/5 border border-white/30 text-gray-200',
             'text-sm rounded px-2 py-2 w-[60px] appearance-none pr-6',
           )}

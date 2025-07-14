@@ -1,45 +1,50 @@
 'use client'
 import React, { useState, useRef, useEffect } from 'react'
 import { Pause, Play } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 const HomeSection = () => {
+  const t = useTranslations('home')
   const [isPlaying, setIsPlaying] = useState(true)
-  const [isUserPaused, setIsUserPaused] = useState(false) // Track user-initiated pause
+  const [isUserPaused, setIsUserPaused] = useState(false)
+  const [currentTextIndex, setCurrentTextIndex] = useState(0)
+  const [fade, setFade] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
-  const sectionRef = useRef<HTMLDivElement>(null) // Reference to the section
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  // Text content keys for transitions
+  const textKeys = ['text1', 'text2', 'text3', 'text4']
 
   // Toggle play/pause and track user-initiated pause
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause()
-        setIsUserPaused(true) // User manually paused
+        setIsUserPaused(true)
       } else {
         videoRef.current.play()
-        setIsUserPaused(false) // User manually played
+        setIsUserPaused(false)
       }
       setIsPlaying(!isPlaying)
     }
   }
 
-  // Intersection Observer to detect when section is in viewport
+  // Intersection Observer for video play/pause
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (videoRef.current) {
           if (entry.isIntersecting && !isUserPaused) {
-            // Play video if section is visible and not user-paused
             videoRef.current.play().catch((err) => console.error('Play error:', err))
             setIsPlaying(true)
           } else if (!entry.isIntersecting) {
-            // Pause video if section is not visible
             videoRef.current.pause()
             setIsPlaying(false)
           }
         }
       },
       {
-        threshold: 0.5, // Trigger when 50% of the section is visible
+        threshold: 0.5,
       }
     )
 
@@ -47,13 +52,28 @@ const HomeSection = () => {
       observer.observe(sectionRef.current)
     }
 
-    // Cleanup observer on component unmount
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current)
       }
     }
-  }, [isUserPaused]) // Re-run effect if isUserPaused changes
+  }, [isUserPaused])
+
+  // Text transition with fade effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false)
+      setTimeout(() => {
+        setCurrentTextIndex((prevIndex) => (prevIndex + 1) % textKeys.length)
+        setFade(true)
+      }, 500)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  // Get translations for collections CTA
+  const tCollections = useTranslations('collections')
 
   return (
     <div ref={sectionRef} className="relative w-full h-screen">
@@ -70,20 +90,31 @@ const HomeSection = () => {
         <source src="/banner.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-{/* Dark Overlay on top of video */}
-<div className="absolute top-0 left-0 w-full h-full bg-black opacity-40 z-10 pointer-events-none" />
+      {/* Dark Overlay */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40 z-10 pointer-events-none" />
 
-      {/* Text Overlay - bottom left */}
-      <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 p-4 bg-black bg-opacity-20 rounded z-20">
-        <p className="text-white text-lg md:text-2xl lg:text-2xl font-cormorant font-medium opacity-90">
-          Welcome to DubaiGoldCaspian
-        </p>
+      {/* Dynamic Text Overlay - Center with Fade */}
+      <div className="absolute inset-0 flex items-center justify-center z-20">
+        <div
+          className={`text-center transition-opacity duration-500 ease-in-out ${
+            fade ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <h1 className="text-gray-100 text-3xl md:text-5xl lg:text-6xl font-cormorant font-medium mb-5">
+            {t(`${textKeys[currentTextIndex]}.title`)}
+          </h1>
+          <p className="text-white text-lg md:text-xl lg:text-2xl font-montserrat font-light opacity-80">
+            {t(`${textKeys[currentTextIndex]}.subtitle`)}
+          </p>
+        </div>
       </div>
 
-      {/* Pause Button - bottom right */}
+     
+
+      {/* Pause Button - Bottom Right */}
       <button
         onClick={togglePlay}
-className="absolute bottom-4 right-4 md:bottom-8 md:right-8 p-3 bg-black bg-opacity-40 rounded-full hover:bg-opacity-60 transition-all z-20"
+        className="absolute bottom-4 right-4 md:bottom-8 md:right-8 p-3 bg-black bg-opacity-40 rounded-full hover:bg-opacity-60 transition-all z-20"
         aria-label={isPlaying ? 'Pause video' : 'Play video'}
       >
         {isPlaying ? (
