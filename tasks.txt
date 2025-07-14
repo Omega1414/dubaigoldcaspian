@@ -2,5 +2,5 @@
 
 
 tomorrow:
-full page carousel
-finish contacts
+finish homepage (add more content)
+finish contacts (add google link)

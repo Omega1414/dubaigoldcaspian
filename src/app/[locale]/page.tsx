@@ -7,6 +7,7 @@ import CollectionSection from "@/components/sections/CollectionSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ContactsSection from "@/components/sections/ContactsSection";
 import LoadingSkeleton from "@/components/LoadingSkeleton"; // varsa, istifadə et
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const t = useTranslations("LocaleLayout");
@@ -39,6 +40,7 @@ export default function Home() {
         <AboutSection />
         <ContactsSection />
       </div>
+      <Footer />
     </div>
   );
 }

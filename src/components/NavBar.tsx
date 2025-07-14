@@ -41,10 +41,10 @@ export default function Navbar() {
       transition={{ duration: 0.2, ease: 'easeOut' }}
       className={`w-full px-6 py-2 fixed top-0 z-50 transition-all ease-in-out duration-300
         ${scrolled
-          ? 'opacity-90 backdrop-blur-md shadow-sm bg-white/80 '
-          : 'opacity-10 bg-white/60 '
+          ? 'opacity-90 backdrop-blur-md shadow-sm bg-white/70 text-gray-700'
+          : 'opacity-100 bg-transparent text-gray-200'
         }
-        text-gray-900`}
+        `}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
@@ -55,20 +55,23 @@ export default function Navbar() {
       alt="MyLogo"
       width={200}  // Set your desired display width
       height={48}  // Set your desired display height (maintain aspect ratio)
-      className="h-full w-auto  " // Auto height, maintains aspect ratio
+      className={`h-full w-auto transition-all duration-300 ${
+        scrolled ? '' : 'invert brightness-0'
+      }`}
       
     />
   </Link>
 </div>
 
         {/* Desktop Nav Links */}
-        <div className="hidden md:flex gap-10 text-[20px] font-semibold font-cormorant">
+        <div className="hidden md:flex gap-10 text-[19px]   font-medium mt-1 font-work-sans">
+
           {['home', 'collections', 'company-craft', 'contacts'].map((section) => (
             <Link 
               key={section}
               href={`#${section}`}
               onClick={() => handleSectionClick(section)}
-              className="hover:text-blue-600  transition"
+              className="hover:text-white  transition"
             >
              {section === 'company-craft' ? 'Company & Craft' : section.charAt(0).toUpperCase() + section.slice(1)}
             </Link>
@@ -78,7 +81,7 @@ export default function Navbar() {
         {/* Right Side Controls */}
         <div className="flex items-center gap-4">
           <div className="hidden md:flex gap-4">
-            <LocaleSwitcher />
+          <LocaleSwitcher scrolled={scrolled} />
           
           </div>
 
@@ -114,7 +117,7 @@ export default function Navbar() {
             ))}
 
             <div className="flex gap-4 pt-2 border-t border-gray-300 ">
-              <LocaleSwitcher />
+              <LocaleSwitcher scrolled={scrolled} />
             
             </div>
           </motion.div>

@@ -25,6 +25,9 @@ const config: Config = {
         dmserif: ['var(--font-dmserif)'],
         raleway: ['var(--font-raleway)'],
         playfair: ['var(--font-playfair)'],
+        montserrat: ['var(--font-montserrat)', 'sans-serif'],
+        poppins: ['var(--font-poppins)', 'sans-serif'],
+        'work-sans': ['var(--font-work-sans)', 'sans-serif'],
     
       },
     },

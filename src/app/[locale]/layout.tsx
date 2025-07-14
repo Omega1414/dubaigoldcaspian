@@ -4,7 +4,7 @@ import { Locale, hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ReactNode } from 'react';
 
-import { Cormorant_Garamond, DM_Serif_Display, Inter, Josefin_Sans, Playfair_Display, Raleway } from 'next/font/google';
+import { Cormorant_Garamond, DM_Serif_Display, Inter, Josefin_Sans, Montserrat, Playfair_Display, Poppins, Raleway, Work_Sans } from 'next/font/google';
 import { routing } from '../../i18n/routing';
 import '../globals.css';
 
@@ -17,7 +17,12 @@ type Props = {
   children: ReactNode;
   params: Promise<{ locale: Locale }>;
 };
-
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-montserrat',
+  display: 'swap',
+});
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
@@ -48,7 +53,18 @@ const playfair = Playfair_Display({
   variable: '--font-playfair',
   display: 'swap',
 });
-
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400'],  // GothamSSmBook kimi normal 400-ü istifadə edirik
+  variable: '--font-poppins',
+  display: 'swap',
+});
+const workSans = Work_Sans({
+  subsets: ['latin'],
+  weight: ['400'],  // GothamSSmBook kimi normal 400 istifadə edirik
+  variable: '--font-work-sans',
+  display: 'swap',
+});
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -83,7 +99,8 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
 
   return (
-    <html lang={locale}  className={`${cormorant.variable} ${josefin.variable} ${dmSerif.variable} ${raleway.variable} ${playfair.variable} antialiased`}>
+    <html lang={locale}  className={`${cormorant.variable} ${josefin.variable} ${dmSerif.variable} ${raleway.variable}
+     ${playfair.variable} ${montserrat.variable} ${poppins.variable} ${workSans.variable} antialiased`}>
       <body >
     
         <NextIntlClientProvider locale={locale}>

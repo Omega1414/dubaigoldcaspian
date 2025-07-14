@@ -325,6 +325,9 @@ const CollectionSection = () => {
                   onSwiper={(swiper) => (swiperRef.current = swiper)}
                   onSlideChange={handleSlideChange}
                   breakpoints={{
+                    768: {
+                      slidesPerView: 2,
+                    },
                     1024: {
                       slidesPerView: 3,
                     },
@@ -344,7 +347,8 @@ const CollectionSection = () => {
                       onClick={handleSlideClick}
                     >
                       <div
-                        className="relative w-full h-64 md:h-72 lg:h-[22rem] xl:h-[24rem] 2xl:h-[30rem] rounded-lg overflow-hidden shadow-lg cursor-zoom-in"
+                       className="relative w-full rounded-lg overflow-hidden shadow-lg cursor-zoom-in"
+                       style={{ height: 'calc(50vh - 50px)' }}
                         data-fancybox="gallery"
                         data-src={image.url}
                         data-caption={image.alt}
@@ -370,7 +374,7 @@ const CollectionSection = () => {
                 </Swiper>
 
                 {selectedItem && (
-                  <div className="mt-1 md:mt-2 lg:mt-3 flex gap-2 overflow-x-auto 2xl:overflow-x-hidden justify-start 2xl:justify-center py-1 px-2">
+                  <div className=" flex gap-2 overflow-x-auto 2xl:overflow-x-hidden justify-start 2xl:justify-center py-1 px-2">
                     {selectedItem.images.map((image, index) => (
                       <div
                         key={image.id}

@@ -65,13 +65,16 @@ const HomeSection = () => {
         muted
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover"
+        style={{ opacity: 0.8 }}
       >
         <source src="/banner.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+{/* Dark Overlay on top of video */}
+<div className="absolute top-0 left-0 w-full h-full bg-black opacity-40 z-10 pointer-events-none" />
 
       {/* Text Overlay - bottom left */}
-      <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 p-4 bg-black bg-opacity-20 rounded">
+      <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 p-4 bg-black bg-opacity-20 rounded z-20">
         <p className="text-white text-lg md:text-2xl lg:text-2xl font-cormorant font-medium opacity-90">
           Welcome to DubaiGoldCaspian
         </p>
@@ -80,7 +83,7 @@ const HomeSection = () => {
       {/* Pause Button - bottom right */}
       <button
         onClick={togglePlay}
-        className="absolute bottom-4 right-4 md:bottom-8 md:right-8 p-3 bg-black bg-opacity-40 rounded-full hover:bg-opacity-60 transition-all"
+className="absolute bottom-4 right-4 md:bottom-8 md:right-8 p-3 bg-black bg-opacity-40 rounded-full hover:bg-opacity-60 transition-all z-20"
         aria-label={isPlaying ? 'Pause video' : 'Play video'}
       >
         {isPlaying ? (
