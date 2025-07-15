@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useRef, useEffect } from 'react'
-import { Pause, Play } from 'lucide-react'
+import { CiPlay1, CiPause1  } from "react-icons/ci";
 import { useTranslations } from 'next-intl'
 
 const HomeSection = () => {
@@ -76,7 +76,7 @@ const HomeSection = () => {
   const tCollections = useTranslations('collections')
 
   return (
-    <div ref={sectionRef} className="relative w-full h-screen">
+    <div id="home" ref={sectionRef} className="relative w-full h-screen">
       {/* Video Background */}
       <video
         ref={videoRef}
@@ -118,9 +118,9 @@ const HomeSection = () => {
         aria-label={isPlaying ? 'Pause video' : 'Play video'}
       >
         {isPlaying ? (
-          <Pause strokeWidth="1.2px" className="text-white w-6 h-6" />
+          <CiPause1  className="text-white w-6 h-6" />
         ) : (
-          <Play strokeWidth="1.2px" className="text-white w-6 h-6" />
+          <CiPlay1  className="text-white w-6 h-6" />
         )}
       </button>
     </div>

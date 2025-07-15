@@ -25,15 +25,16 @@ const CollectionSection = () => {
   const swiperRef = useRef<SwiperCore>();
   useEffect(() => {
     const handlePopState = (e: PopStateEvent) => {
+      // Əgər Fancybox açıqdırsa, heç nə etmə
+      if (Fancybox.getInstance()) return;
+  
       if (selectedCollection) {
         handleBackClick();
-        // Tarixi əvvəlki halına qaytarırıq ki, ikinci dəfə back basanda səhifədən çıxmasın
         window.history.pushState(null, '');
       }
     };
   
     if (selectedCollection) {
-      // Əgər seçilibsə, tarixə bir səviyyə əlavə et
       window.history.pushState(null, '');
       window.addEventListener('popstate', handlePopState);
     }
@@ -42,6 +43,7 @@ const CollectionSection = () => {
       window.removeEventListener('popstate', handlePopState);
     };
   }, [selectedCollection]);
+  
   
   useEffect(() => {
     Fancybox.bind('[data-fancybox]', {
@@ -53,14 +55,20 @@ const CollectionSection = () => {
         click: true,
         wheel: 'slide',
       },
+      on: {
+        closing: () => {
+          // Sadəcə Fancybox bağlanır, heç nə dəyişmir
+          console.log('Fancybox bağlanır – carousel qalır yerində');
+        },
+      },
     } as any);
-
+  
     return () => {
       Fancybox.unbind('[data-fancybox]');
       Fancybox.close();
     };
   }, []);
-
+  
   const collectionItems = [
     {
       id: 1,
@@ -351,7 +359,7 @@ const CollectionSection = () => {
                        style={{ height: 'calc(50vh - 50px)' }}
                         data-fancybox="gallery"
                         data-src={image.url}
-                        data-caption={image.alt}
+                        
                       >
                         {!loadedImages[`carousel-${image.id}`] && (
                           <LoadingSkeleton

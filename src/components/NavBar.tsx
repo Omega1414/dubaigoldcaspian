@@ -3,7 +3,8 @@
 import Link from 'next/link'
 import LocaleSwitcher from './LocaleSwitcher'
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { IoMdMenu, IoMdCloseCircleOutline  } from "react-icons/io";
+
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 
@@ -90,7 +91,7 @@ export default function Navbar() {
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X size={26} /> : <Menu size={26} />}
+            {isOpen ? <IoMdCloseCircleOutline size={26} /> : <IoMdMenu size={26} />}
           </button>
         </div>
       </div>

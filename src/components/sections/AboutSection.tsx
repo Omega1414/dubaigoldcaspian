@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { motion, Variants } from 'framer-motion';
-import { Pause, Play } from 'lucide-react';
+import { CiPlay1, CiPause1  } from "react-icons/ci";
 
 const AboutSection = () => {
   const t = useTranslations('about');
@@ -93,9 +93,9 @@ const AboutSection = () => {
             aria-label={isPlaying ? 'Pause video' : 'Play video'}
           >
             {isPlaying ? (
-              <Pause strokeWidth="1.2px" className="text-white w-6 h-6" />
+              <CiPause1  className="text-white w-6 h-6" />
             ) : (
-              <Play strokeWidth="1.2px" className="text-white w-6 h-6" />
+              <CiPlay1  className="text-white w-6 h-6" />
             )}
           </button>
         </motion.div>
