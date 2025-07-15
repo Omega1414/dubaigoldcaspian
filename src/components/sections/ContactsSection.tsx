@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { FaWhatsapp, FaInstagram, FaYoutube, FaEnvelope, FaPhone } from 'react-icons/fa';
 import { RiMapPin2Fill } from 'react-icons/ri';
 import dynamic from 'next/dynamic';
+import { useTranslations } from 'next-intl';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: -20 },
@@ -19,7 +20,7 @@ const textVariants = {
 
 const ContactsSection = () => {
   const Map = dynamic(() => import('../Map'), { ssr: false });
-
+  const t = useTranslations('contacts'); 
   return (
     <section
       id="contacts"
@@ -34,13 +35,13 @@ const ContactsSection = () => {
           className="text-center"
         >
           <h2 className="text-3xl sm:text-4xl md:text-4xl font-cormorant font-medium text-gray-700 mb-2 lg:mb-6">
-            Contact Us
+          {t('title')}
           </h2>
           <motion.p
             variants={textVariants}
             className="font-cormorant font-medium text-gray-700 text-lg sm:text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto px-4 relative"
           >
-            Feel free to reach out to us for any inquiries or assistance.
+                {t('description')}
             <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/3 h-0.5 bg-gradient-to-r from-transparent via-gray-500 to-transparent" />
           </motion.p>
         </motion.div>

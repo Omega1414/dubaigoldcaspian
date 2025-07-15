@@ -4,16 +4,16 @@ import Link from 'next/link'
 import LocaleSwitcher from './LocaleSwitcher'
 import { useState, useEffect } from 'react'
 import { IoMdMenu, IoMdCloseCircleOutline  } from "react-icons/io";
+import { useTranslations } from 'next-intl';
 
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 
 export default function Navbar() {
+  const t = useTranslations('navbar'); 
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-
   const toggleMenu = () => setIsOpen(!isOpen)
-
   const handleSectionClick = (sectionId: string) => {
     setIsOpen(false)
     setTimeout(() => {
@@ -43,7 +43,7 @@ export default function Navbar() {
       className={`w-full px-6 py-2 fixed top-0 z-50 transition-all ease-in-out duration-300
         ${scrolled
           ? 'opacity-90 backdrop-blur-md shadow-sm bg-white/70 text-gray-700'
-          : 'opacity-100 bg-transparent text-gray-200'
+          : 'opacity-100 bg-transparent text-white'
         }
         `}
     >
@@ -65,18 +65,18 @@ export default function Navbar() {
 </div>
 
         {/* Desktop Nav Links */}
-        <div className="hidden md:flex gap-10 text-[19px]   font-medium mt-1 font-work-sans">
+        <div className="hidden md:flex gap-10 text-[20px]   font-medium mt-1 font-cormorant">
 
-          {['home', 'collections', 'company-craft', 'contacts'].map((section) => (
-            <Link 
-              key={section}
-              href={`#${section}`}
-              onClick={() => handleSectionClick(section)}
-              className="hover:text-white  transition"
-            >
-             {section === 'company-craft' ? 'Company & Craft' : section.charAt(0).toUpperCase() + section.slice(1)}
-            </Link>
-          ))}
+        {['home', 'collections', 'company-craft', 'contacts'].map((section) => (
+  <Link 
+    key={section}
+    href={`#${section}`}
+    onClick={() => handleSectionClick(section)}
+    className={`${scrolled ? "hover:text-gray-500" : "hover:text-gray-300"} transition`}
+  >
+    {t(section)}
+  </Link>
+))}
         </div>
 
         {/* Right Side Controls */}
@@ -106,16 +106,16 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className="md:hidden mt-4 font-work-sans font-medium space-y-4 flex flex-col bg-white/70  p-4 rounded shadow"
           >
-           {['home', 'collections', 'company-craft', 'contacts'].map((section) => (
-              <Link 
-                key={section}
-                href={`#${section}`}
-                onClick={() => handleSectionClick(section)}
-                className="hover:text-white transition py-2"
-              >
-                {section === 'company-craft' ? 'Company & Craft' : section.charAt(0).toUpperCase() + section.slice(1)}
-              </Link>
-            ))}
+         {['home', 'collections', 'company-craft', 'contacts'].map((section) => (
+  <Link 
+    key={section}
+    href={`#${section}`}
+    onClick={() => handleSectionClick(section)}
+    className="hover:text-white transition"
+  >
+    {t(section)}
+  </Link>
+))}
 
             <div className="flex gap-4 pt-2 border-t border-gray-300 ">
               <LocaleSwitcher scrolled={scrolled} />

@@ -4,7 +4,7 @@
 declare const messages: {
   "LocaleLayout": {
     "title": "DubaiGold",
-    "description": "This is the homepage"
+    "description": "Where Imagination Becomes Jewellery"
   },
   "LocaleSwitcher": {
     "label": "Change language",
@@ -49,6 +49,17 @@ declare const messages: {
       "title": "Experience Our Legacy",
       "subtitle": "Explore 25 Years of Exquisite Designs"
     }
+  },
+  "contacts": {
+    "title": "Contact Us",
+    "description": "Feel free to reach out to us for any inquiries or assistance."
+  },
+  "navbar": {
+    "home": "Home",
+    "collections": "Collections",
+    "company-craft": "Company & Craft",
+    "contacts": "Contacts"
   }
+
 };
 export default messages;
