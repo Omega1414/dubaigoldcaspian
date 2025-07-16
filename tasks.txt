@@ -3,10 +3,5 @@
 
 tomorrow:
 finish contacts (design)
-add ru
-
-
-  "LocaleSwitcher": {
-    "label": "Change language",
-    "locale": "{locale, select, ru {RU} en {EN} other {Unknown}}"
-  },
+check ru
+test resp
