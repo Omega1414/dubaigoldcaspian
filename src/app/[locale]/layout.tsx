@@ -3,14 +3,9 @@ import { notFound } from 'next/navigation';
 import { Locale, hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ReactNode } from 'react';
-
 import { Cormorant_Garamond, DM_Serif_Display, Inter, Josefin_Sans, Montserrat, Playfair_Display, Poppins, Raleway, Work_Sans } from 'next/font/google';
 import { routing } from '../../i18n/routing';
 import '../globals.css';
-
-
-
-
 
 
 type Props = {
@@ -31,7 +26,7 @@ const cormorant = Cormorant_Garamond({
 })
 const dmSerif = DM_Serif_Display({
   subsets: ['latin'],
-  weight: '400', // bu font sadəcə 400-ü dəstəkləyir
+  weight: '400', 
   variable: '--font-dmserif',
   display: 'swap',
 })
@@ -55,16 +50,17 @@ const playfair = Playfair_Display({
 });
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['400'],  // GothamSSmBook kimi normal 400-ü istifadə edirik
+  weight: ['400'],  
   variable: '--font-poppins',
   display: 'swap',
 });
 const workSans = Work_Sans({
   subsets: ['latin'],
-  weight: ['400'],  // GothamSSmBook kimi normal 400 istifadə edirik
+  weight: ['400'],  
   variable: '--font-work-sans',
   display: 'swap',
 });
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -73,8 +69,13 @@ export async function generateMetadata(props: Omit<Props, 'children'>) {
   const { locale } = await props.params;
   const t = await getTranslations({ locale, namespace: 'LocaleLayout' });
 
+  const baseUrl = 'https://dubaigoldcaspian.vercel.app'; 
+  const image = `${baseUrl}/og-image.png`; 
+
   return {
     title: t('title'),
+    description: t('description'), 
+
     icons: {
       icon: [
         { url: '/favicon.ico' },
@@ -85,28 +86,50 @@ export async function generateMetadata(props: Omit<Props, 'children'>) {
         { url: '/android-chrome-384x384.png', sizes: '384x384', type: 'image/png' },
       ],
     },
+
     manifest: '/site.webmanifest',
+
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      url: baseUrl,
+      siteName: 'Sayt Adı Burada',
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: 'Preview',
+        },
+      ],
+      locale: locale,
+      type: 'website',
+    },
+
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('description'),
+      images: [image],
+    },
   };
 }
 
+
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
-
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
-
   setRequestLocale(locale);
 
   return (
     <html lang={locale}  className={`${cormorant.variable} ${josefin.variable} ${dmSerif.variable} ${raleway.variable}
      ${playfair.variable} ${montserrat.variable} ${poppins.variable} ${workSans.variable} antialiased`}>
       <body >
-    
         <NextIntlClientProvider locale={locale}>
      {children}
         </NextIntlClientProvider>
-       
       </body>
     </html>
   );
