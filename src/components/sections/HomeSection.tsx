@@ -80,6 +80,7 @@ const HomeSection = () => {
       {/* Video Background */}
       <video
         ref={videoRef}
+         preload="none"
         autoPlay
         loop
         muted
@@ -87,6 +88,7 @@ const HomeSection = () => {
         className="absolute top-0 left-0 w-full h-full object-cover"
         style={{ opacity: 0.8 }}
       >
+        <source src="/banner.webm" type="video/webm" />
         <source src="/banner.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
