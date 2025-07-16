@@ -91,7 +91,7 @@ export default function Navbar() {
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
-            {isOpen ? <IoMdCloseCircleOutline size={26} /> : <IoMdMenu size={26} />}
+            {isOpen ? <IoMdCloseCircleOutline size={26} className={`${scrolled ? "text-black" : "text-white"}`} /> : <IoMdMenu size={26} className={`${scrolled ? "text-black" : "text-white"}`} />}
           </button>
         </div>
       </div>
@@ -104,7 +104,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden mt-4 font-work-sans font-medium space-y-4 flex flex-col bg-white/70  p-4 rounded shadow"
+            className={`md:hidden mt-4 font-work-sans font-medium space-y-4 flex flex-col ${scrolled ? "bg-transparent" : "bg-gray-600"}   p-4 rounded shadow`}
           >
          {['home', 'collections', 'company-craft', 'contacts'].map((section) => (
   <Link 

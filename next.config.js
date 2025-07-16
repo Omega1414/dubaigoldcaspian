@@ -24,7 +24,7 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: `
               default-src 'self';
-              script-src 'self' 'unsafe-inline' blob:;
+              script-src 'self' 'unsafe-inline' blob: ${isDev ? "'unsafe-eval'" : ''};
               style-src 'self' 'unsafe-inline' https://api.maptiler.com;
               img-src 'self' https: data:;
               connect-src 'self' https://api.maptiler.com blob:;
