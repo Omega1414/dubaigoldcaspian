@@ -22,9 +22,15 @@ const nextConfig = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: isDev
-              ? "default-src 'self'; connect-src 'self' https://api.maptiler.com; img-src 'self' https: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; font-src 'self' https: data:; worker-src 'self' blob:;"
-              : "default-src 'self'; connect-src 'self' https://api.maptiler.com; img-src 'self' https: data:; script-src 'self' blob:; style-src 'self' 'unsafe-inline'; font-src 'self' https: data:; worker-src 'self' blob:;",
+            value: `
+              default-src 'self';
+              script-src 'self' 'unsafe-inline' blob:;
+              style-src 'self' 'unsafe-inline' https://api.maptiler.com;
+              img-src 'self' https: data:;
+              connect-src 'self' https://api.maptiler.com blob:;
+              font-src 'self' https: data:;
+              worker-src 'self' blob:;
+            `.replace(/\n/g, ' '),
           },
           {
             key: 'X-Frame-Options',
