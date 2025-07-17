@@ -132,7 +132,7 @@ const AboutSection = () => {
         >
           <div className="w-full md:w-1/2 lg:max-w-sm">
             <Image
-              src="https://res.cloudinary.com/dmnkgqbcu/image/upload/v1752357648/52472159295_5625251c0b_b_yxx7ku.jpg"
+              src="https://res.cloudinary.com/dmnkgqbcu/image/upload/v1752357745/52471978294_315824afe8_b_ovi4z2.jpg"
               alt="Factory Tour"
               width={600}
               height={400}
@@ -162,7 +162,7 @@ const AboutSection = () => {
         >
           <div className="w-full md:w-1/2 lg:max-w-sm">
             <Image
-              src="https://res.cloudinary.com/dmnkgqbcu/image/upload/v1752357745/52471978294_315824afe8_b_ovi4z2.jpg"
+              src="https://res.cloudinary.com/dmnkgqbcu/image/upload/v1752357648/52472159295_5625251c0b_b_yxx7ku.jpg"
               alt="Custom Design Process"
               width={600}
               height={400}
