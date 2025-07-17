@@ -84,7 +84,7 @@ const ContactsSection = () => {
               ))}
             </div>
 
-            {/* Əlaqə məlumatları */}
+          
             <div className="space-y-4 2xl:space-y-6 mt-0 2xl:mt-10 w-full text-left text-md sm:text-base md:text-lg font-work-sans">
   <p className="flex items-center">
     <FaEnvelope className="w-5 h-5 mr-3 text-gray-600" />
@@ -104,7 +104,7 @@ const ContactsSection = () => {
 </div>
           </div>
 
-          {/* Sağ tərəf: Xəritə */}
+          
           <div className="w-full h-64 sm:h-72 md:h-80 lg:h-60 2xl:h-80 rounded-xl overflow-hidden shadow-xl border border-gray-200">
             <Map />
           </div>

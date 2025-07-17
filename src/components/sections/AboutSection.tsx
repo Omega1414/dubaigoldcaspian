@@ -68,6 +68,7 @@ const AboutSection = () => {
           <video
             ref={videoRef}
             autoPlay
+                 preload="none"
             loop
             muted
             playsInline
@@ -76,7 +77,7 @@ const AboutSection = () => {
             <source src="/craft.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
             <motion.h1
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}

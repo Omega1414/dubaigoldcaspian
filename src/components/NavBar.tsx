@@ -5,7 +5,6 @@ import LocaleSwitcher from './LocaleSwitcher'
 import { useState, useEffect } from 'react'
 import { IoMdMenu, IoMdCloseCircleOutline  } from "react-icons/io";
 import { useTranslations } from 'next-intl';
-
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 

@@ -72,8 +72,7 @@ const HomeSection = () => {
     return () => clearInterval(interval)
   }, [])
 
-  // Get translations for collections CTA
-  const tCollections = useTranslations('collections')
+ 
 
   return (
     <div id="home" ref={sectionRef} className="relative w-full h-screen">

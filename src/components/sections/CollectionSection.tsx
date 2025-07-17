@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -25,7 +24,6 @@ const CollectionSection = () => {
   const swiperRef = useRef<SwiperCore>();
   useEffect(() => {
     const handlePopState = (e: PopStateEvent) => {
-      // Əgər Fancybox açıqdırsa, heç nə etmə
       if (Fancybox.getInstance()) return;
   
       if (selectedCollection) {
@@ -57,7 +55,6 @@ const CollectionSection = () => {
       },
       on: {
         closing: () => {
-          // Sadəcə Fancybox bağlanır, heç nə dəyişmir
           console.log('Fancybox bağlanır – carousel qalır yerində');
         },
       },
