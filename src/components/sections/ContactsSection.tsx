@@ -7,11 +7,13 @@ import { RiMapPin2Fill } from 'react-icons/ri';
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import FadeInWhenVisible from '../FadeIn';
+import { motion } from 'framer-motion';
 
 const Map = dynamic(() => import('../Map'), { ssr: false });
 
 const ContactsSection = () => {
   const t = useTranslations('contacts');
+
   return (
     <section
       id="contacts"
@@ -20,14 +22,28 @@ const ContactsSection = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <FadeInWhenVisible className="text-center mb-8 lg:mb-16">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-cormorant font-medium text-gray-700 mb-2 lg:mb-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+            className="relative w-fit mx-auto text-2xl md:text-3xl lg:text-4xl font-cormorant font-medium text-gray-700 mb-2 lg:mb-4"
+          >
             {t('title')}
-          </h2>
+            <motion.span
+              initial={{ scaleX: 0, opacity: 0 }}
+              whileInView={{ scaleX: 1, opacity: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.7 }}
+              className="absolute -bottom-1 left-0 w-full h-0.5 origin-center bg-gradient-to-r from-transparent via-gray-500 to-transparent"
+            />
+          </motion.h2>
+
           <div className="relative">
-            <p className="font-cormorant font-medium text-gray-700 text-lg sm:text-xl lg:text-2xl max-w-3xl mx-auto px-4 pb-4 lg:pb-6">
+            <p className="font-cormorant font-medium text-gray-700 text-lg sm:text-xl lg:text-2xl max-w-3xl mx-auto px-4 pb-1">
               {t('description')}
             </p>
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 lg:w-24 h-0.5 bg-gradient-to-r from-transparent via-gray-500 to-transparent" />
+           
           </div>
         </FadeInWhenVisible>
 
@@ -35,7 +51,6 @@ const ContactsSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Left: Contact Information */}
           <FadeInWhenVisible className="space-y-6 lg:space-y-8">
-            {/* Contact Details */}
             <div className="space-y-4 lg:space-y-6">
               {/* Mobile Number */}
               <div className="group">
@@ -56,7 +71,7 @@ const ContactsSection = () => {
                 <Link
                   href="https://api.whatsapp.com/message/KXDR3KZ7YZG7C1?autoload=1&app_absent=0"
                   target="_blank"
-                  className="relative overflow-hidden flex items-center p-4 rounded-lg border border-gray-200 hover:border-gray-400 transition-all duration-500 hover:shadow-lg "
+                  className="relative overflow-hidden flex items-center p-4 rounded-lg border border-gray-200 hover:border-gray-400 transition-all duration-500 hover:shadow-lg"
                 >
                   <div className="absolute inset-0 bg-gray-700 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
                   <div className="relative z-10 flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-gray-600 transition-colors duration-500">

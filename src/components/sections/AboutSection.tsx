@@ -76,14 +76,30 @@ const AboutSection = () => {
         {/* Company History */}
         <div className="mt-12 md:mt-16 text-center">
           <FadeInWhenVisible>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-cormorant font-medium text-gray-700 mb-6">
-              {t('historyTitle')}
-            </h2>
+          <motion.h2
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.5 }}
+  transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+  className="relative w-fit mx-auto text-2xl md:text-3xl lg:text-4xl font-cormorant font-medium text-gray-700 mb-6"
+>
+  {t('historyTitle')}
+  <motion.span
+    initial={{ scaleX: 0, opacity: 0 }}
+    whileInView={{ scaleX: 1, opacity: 1 }}
+    viewport={{ once: true, amount: 0.5 }}
+    transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.7 }}
+    className="
+      absolute -bottom-1 left-0 w-full h-0.5 origin-center
+      bg-gradient-to-r from-transparent via-gray-500 to-transparent
+    "
+  />
+</motion.h2>
           </FadeInWhenVisible>
           <FadeInWhenVisible>
             <p className="font-cormorant font-medium text-gray-700 text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto px-4 relative">
               {t('historyDescription')}
-              <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/3 h-0.5 bg-gradient-to-r from-transparent via-gray-500 to-transparent" />
+             
             </p>
           </FadeInWhenVisible>
         </div>
@@ -100,9 +116,26 @@ const AboutSection = () => {
             />
           </FadeInWhenVisible>
           <FadeInWhenVisible className="w-full md:w-1/2 lg:max-w-md 2xl:max-w-xl 3xl:max-w-2xl text-center">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl 2xl:text-4xl font-cormorant font-medium text-gray-700 mb-6">
-              {t('tourTitle')}
-            </h2>
+          <motion.h2
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.5 }}
+  transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+  className="text-2xl md:text-3xl lg:text-3xl 2xl:text-4xl font-cormorant font-medium text-gray-700 mb-6 relative inline-block"
+>
+  {t('tourTitle')}
+  <motion.span
+    initial={{ scaleX: 0, opacity: 0 }}
+    whileInView={{ scaleX: 1, opacity: 1 }}
+    viewport={{ once: true, amount: 0.5 }}
+    transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.7 }}
+    className="
+    absolute -bottom-1 left-0 w-full h-0.5 origin-center
+    bg-gradient-to-r from-transparent via-gray-500 to-transparent
+  "
+  />
+</motion.h2>
+
             <p className="font-cormorant font-medium text-gray-700 text-lg md:text-xl lg:text-xl 2xl:text-2xl max-w-xl mx-auto">
               {t('tourDescription')}
             </p>
@@ -121,9 +154,25 @@ const AboutSection = () => {
             />
           </FadeInWhenVisible>
           <FadeInWhenVisible className="w-full md:w-1/2 lg:max-w-md 2xl:max-w-xl 3xl:max-w-2xl text-center">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl 2xl:text-4xl font-cormorant font-medium text-gray-700 mb-6">
-              {t('designTitle')}
-            </h2>
+          <motion.h2
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.5 }}
+  transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+  className="text-2xl md:text-3xl lg:text-3xl 2xl:text-4xl font-cormorant font-medium text-gray-700 mb-6 relative inline-block"
+>
+  {t('designTitle')}
+  <motion.span
+    initial={{ scaleX: 0, opacity: 0 }}
+    whileInView={{ scaleX: 1, opacity: 1 }}
+    viewport={{ once: true, amount: 0.5 }}
+    transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.7 }}
+    className="
+      absolute -bottom-1 left-0 w-full h-0.5 origin-center
+      bg-gradient-to-r from-transparent via-gray-500 to-transparent
+    "
+  />
+</motion.h2>
             <p className="font-cormorant font-medium text-gray-700 text-lg md:text-xl lg:text-xl 2xl:text-2xl max-w-xl mx-auto">
               {t('designDescription')}
             </p>
@@ -133,14 +182,31 @@ const AboutSection = () => {
         {/* Free Transfer */}
         <div className="mt-12 md:mt-16 text-center">
           <FadeInWhenVisible>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-cormorant font-medium text-gray-700 mb-6">
-              {t('transferTitle')}
-            </h2>
+          <motion.h2
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.5 }}
+  transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+  className="text-2xl md:text-3xl lg:text-4xl font-cormorant font-medium text-gray-700 mb-6 relative inline-block"
+>
+  {t('transferTitle')}
+  <motion.span
+    initial={{ scaleX: 0, opacity: 0 }}
+    whileInView={{ scaleX: 1, opacity: 1 }}
+    viewport={{ once: true, amount: 0.5 }}
+    transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.7 }}
+    className="
+      absolute -bottom-1 left-0 w-full h-0.5 origin-center
+      bg-gradient-to-r from-transparent via-gray-500 to-transparent
+    "
+  />
+</motion.h2>
+
           </FadeInWhenVisible>
           <FadeInWhenVisible>
             <p className="font-cormorant font-medium text-gray-700 text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto px-4 relative">
               {t('transferDescription')}
-              <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/3 h-0.5 bg-gradient-to-r from-transparent via-gray-500 to-transparent" />
+             
             </p>
           </FadeInWhenVisible>
         </div>

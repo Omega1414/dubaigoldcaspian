@@ -174,125 +174,147 @@ const CollectionSection = () => {
       <div className="max-w-7xl 2xl:max-w-full mx-auto">
         {/* Collections Grid */}
         <AnimatePresence>
-          {!selectedCollection && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="h-full"
+  {!selectedCollection && (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      className="h-full"
+    >
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+        className="
+          font-cormorant font-medium text-gray-700 text-2xl  lg:text-3xl
+          max-w-3xl mx-auto relative text-center pb-0.5
+        "
+      >
+        {t('title')}
+        <motion.span
+          initial={{ scaleX: 0, opacity: 0 }}
+          whileInView={{ scaleX: 1, opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.7}}
+          className="
+            absolute bottom-0 left-1/3 transform -translate-x-1/2 w-1/3 h-0.5
+            bg-gradient-to-r from-transparent via-gray-500 to-transparent
+          "
+        />
+      </motion.h2>
+
+      <div
+        className="
+          grid
+          grid-cols-2
+          gap-x-3 gap-y-6
+          sm:gap-x-4 sm:gap-y-8
+          md:grid-cols-2 md:gap-10
+          xl:grid-cols-4 xl:gap-8
+          max-w-full
+          mx-auto
+          pb-1
+        "
+      >
+        {collectionItems.map((item, index) => (
+          <motion.div
+            key={item.id}
+            custom={index}
+            initial="hidden"
+            animate="visible"
+            variants={gridItemVariants}
+            className="
+              relative w-[90%] sm:w-[85%] aspect-[3/4] sm:aspect-[4/5] md:aspect-square h-[25vh] md:h-[30vh] 2xl:h-[55vh] overflow-hidden group mx-auto cursor-pointer
+            "
+            onMouseEnter={() => setHoveredItem(item.id)}
+            onMouseLeave={() => setHoveredItem(null)}
+            onClick={() => handleCollectionClick(item.link)}
+          >
+            <div className="absolute inset-0">
+              {!loadedImages[`grid-${item.id}`] && (
+                <LoadingSkeleton
+                  width="100%"
+                  height="100%"
+                  className="absolute inset-0 rounded-2xl"
+                />
+              )}
+              <Image
+                src={item.bgImage}
+                alt={t(item.titleKey)}
+                fill
+                priority
+                className={`
+                  object-cover rounded-2xl transition-all duration-700
+                  ${hoveredItem === item.id ? 'opacity-100 scale-105 shadow-xl' : 'opacity-100'}
+                  ${item.id === 1 ? 'object-[center_30%] md:object-center' : ''}
+                  ${item.id === 2 ? 'object-[center_40%] md:object-center' : ''}
+                  ${loadedImages[`grid-${item.id}`] ? 'opacity-100' : 'opacity-0'}
+                `}
+                onLoad={() => handleImageLoad(`grid-${item.id}`)}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+              />
+              <div className="absolute inset-0 transition-all duration-500" />
+            </div>
+
+            <div
+              className={`
+                absolute font-cormorant font-medium antialiased bottom-3 2xl:bottom-6 left-1/2 transform -translate-x-1/2
+                text-gray-700 text-2xl md:text-2xl lg:text-2xl 2xl:text-3xl text-center
+                transition-all duration-500
+                ${hoveredItem === item.id ? '-translate-y-5 lg:-translate-y-7 2xl:-translate-y-8' : ''}
+              `}
             >
-              <motion.h2
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-                className="text-start text-2xl xl:text-3xl font-cormorant font-medium pl-2 xl:pl-[80px]"
-              >
-                {t('title')}
-              </motion.h2>
+              {t(item.titleKey)}
+            </div>
 
-              <div
-                className="
-                  grid
-                  grid-cols-2
-                  gap-x-3 gap-y-6
-                  sm:gap-x-4 sm:gap-y-8
-                  md:grid-cols-2 md:gap-10
-                  xl:grid-cols-4 xl:gap-8
-                  max-w-full
-                  mx-auto
-                  pb-1
-                "
-              >
-                {collectionItems.map((item, index) => (
-                  <motion.div
-                    key={item.id}
-                    custom={index}
-                    initial="hidden"
-                    animate="visible"
-                    variants={gridItemVariants}
-                    className="
-                      relative w-[90%] sm:w-[85%] aspect-[3/4] sm:aspect-[4/5] md:aspect-square h-[25vh] md:h-[30vh] 2xl:h-[55vh] overflow-hidden group mx-auto cursor-pointer
-                    "
-                    onMouseEnter={() => setHoveredItem(item.id)}
-                    onMouseLeave={() => setHoveredItem(null)}
-                    onClick={() => handleCollectionClick(item.link)}
-                  >
-                    <div className="absolute inset-0">
-                      {!loadedImages[`grid-${item.id}`] && (
-                        <LoadingSkeleton
-                          width="100%"
-                          height="100%"
-                          className="absolute inset-0 rounded-2xl"
-                        />
-                      )}
-                      <Image
-                        src={item.bgImage}
-                        alt={t(item.titleKey)}
-                        fill
-                        priority
-                        className={`
-                          object-cover rounded-2xl transition-all duration-700
-                          ${hoveredItem === item.id ? 'opacity-100 scale-105 shadow-xl' : 'opacity-100'}
-                          ${item.id === 1 ? 'object-[center_30%] md:object-center' : ''}
-                          ${item.id === 2 ? 'object-[center_40%] md:object-center' : ''}
-                          ${loadedImages[`grid-${item.id}`] ? 'opacity-100' : 'opacity-0'}
-                        `}
-                        onLoad={() => handleImageLoad(`grid-${item.id}`)}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                      />
-                      <div className="absolute inset-0 transition-all duration-500" />
-                    </div>
+            <div
+              className={`
+                absolute font-cormorant font-medium antialiased bottom-3 2xl:bottom-6 left-1/2 transform -translate-x-1/2
+                text-gray-700 w-full text-md lg:text-xl 2xl:text-2xl text-center
+                transition-all duration-500
+                ${hoveredItem === item.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+              `}
+            >
+              {t(item.hoverTextKey)}
+            </div>
+          </motion.div>
+        ))}
+      </div>
 
-                    <div
-                      className={`
-                        absolute font-cormorant font-medium antialiased bottom-3 2xl:bottom-6 left-1/2 transform -translate-x-1/2
-                        text-gray-700 text-2xl md:text-2xl lg:text-2xl 2xl:text-3xl text-center
-                        transition-all duration-500
-                        ${hoveredItem === item.id ? '-translate-y-5 lg:-translate-y-7 2xl:-translate-y-8' : ''}
-                      `}
-                    >
-                      {t(item.titleKey)}
-                    </div>
-
-                    <div
-                      className={`
-                        absolute font-cormorant font-medium antialiased bottom-3 2xl:bottom-6 left-1/2 transform -translate-x-1/2
-                        text-gray-700 w-full text-md lg:text-xl 2xl:text-2xl text-center
-                        transition-all duration-500
-                        ${hoveredItem === item.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-                      `}
-                    >
-                      {t(item.hoverTextKey)}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={textVariants}
-                className="mt-12 xl:mt-[80px] 3xl:mt-[120px] text-center px-4"
-              >
-                <p
-                  className="
-                    font-cormorant font-medium text-gray-700 text-xl md:text-2xl lg:text-2xl
-                    max-w-3xl mx-auto relative
-                  "
-                >
-                  {t('craftsmanshipDescription')}
-                  <span
-                    className="
-                      absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/3 h-0.5
-                      bg-gradient-to-r from-transparent via-gray-500 to-transparent
-                    "
-                  />
-                </p>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={textVariants}
+        className="mt-12 xl:mt-[80px] 3xl:mt-[120px] text-center px-4"
+      >
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
+          className="
+            font-cormorant font-medium text-gray-700 text-xl md:text-2xl lg:text-2xl
+            max-w-3xl mx-auto relative
+          "
+        >
+          {t('craftsmanshipDescription')}
+          <motion.span
+            initial={{ scaleX: 0, opacity: 0 }}
+            whileInView={{ scaleX: 2, opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.8}}
+            className="
+              absolute bottom-0 left-1/3 transform -translate-x-1/2 w-1/3 h-0.5
+              bg-gradient-to-r from-transparent via-gray-500 to-transparent
+            "
+          />
+        </motion.p>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
 
         <div
           className={`absolute inset-0 pt-[80px] pb-24 px-4 transition-all duration-300 ${

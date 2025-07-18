@@ -2,5 +2,5 @@
 
 
 tomorrow:
-finish contacts (design)
-add moving bg to home text and pause with video
+add transition to underlines
+more transition to collections
