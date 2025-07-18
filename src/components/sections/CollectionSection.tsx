@@ -150,24 +150,14 @@ const CollectionSection = () => {
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.2,
-        duration: 0.6,
+        delay: i * 0.3,
+        duration: 1,
         ease: [0.25, 0.1, 0.25, 1],
       },
     }),
   };
 
-  const textVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
-    },
-  };
+
 
   return (
     <section id="collections" className="pt-[90px] md:pt-24 pb-10 px-4 relative overflow-hidden min-h-screen">
@@ -176,17 +166,17 @@ const CollectionSection = () => {
         <AnimatePresence>
   {!selectedCollection && (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 2, ease: 'easeOut' }}
       className="h-full"
     >
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+        transition={{ duration: 1, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
         className="
           font-cormorant font-medium text-gray-700 text-2xl  lg:text-3xl
           max-w-3xl mx-auto relative text-center pb-0.5
@@ -197,7 +187,7 @@ const CollectionSection = () => {
           initial={{ scaleX: 0, opacity: 0 }}
           whileInView={{ scaleX: 1, opacity: 1 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.7}}
+          transition={{ duration: 1, ease: [0.4, 0, 0.2, 1], delay: 0.7 }}
           className="
             absolute bottom-0 left-1/3 transform -translate-x-1/2 w-1/3 h-0.5
             bg-gradient-to-r from-transparent via-gray-500 to-transparent
@@ -219,19 +209,18 @@ const CollectionSection = () => {
         "
       >
         {collectionItems.map((item, index) => (
-          <motion.div
-            key={item.id}
-            custom={index}
-            initial="hidden"
-            animate="visible"
-            variants={gridItemVariants}
-            className="
-              relative w-[90%] sm:w-[85%] aspect-[3/4] sm:aspect-[4/5] md:aspect-square h-[25vh] md:h-[30vh] 2xl:h-[55vh] overflow-hidden group mx-auto cursor-pointer
-            "
-            onMouseEnter={() => setHoveredItem(item.id)}
-            onMouseLeave={() => setHoveredItem(null)}
-            onClick={() => handleCollectionClick(item.link)}
-          >
+        <motion.div
+        key={item.id}
+        custom={index}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={gridItemVariants}
+        className="relative w-[90%] sm:w-[85%] aspect-[3/4] sm:aspect-[4/5] md:aspect-square h-[25vh] md:h-[30vh] 2xl:h-[55vh] overflow-hidden group mx-auto cursor-pointer"
+        onMouseEnter={() => setHoveredItem(item.id)}
+        onMouseLeave={() => setHoveredItem(null)}
+        onClick={() => handleCollectionClick(item.link)}
+      >
             <div className="absolute inset-0">
               {!loadedImages[`grid-${item.id}`] && (
                 <LoadingSkeleton
@@ -284,16 +273,13 @@ const CollectionSection = () => {
       </div>
 
       <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={textVariants}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 1, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
         className="mt-12 xl:mt-[80px] 3xl:mt-[120px] text-center px-4"
       >
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
+        <p
           className="
             font-cormorant font-medium text-gray-700 text-xl md:text-2xl lg:text-2xl
             max-w-3xl mx-auto relative
@@ -304,17 +290,18 @@ const CollectionSection = () => {
             initial={{ scaleX: 0, opacity: 0 }}
             whileInView={{ scaleX: 2, opacity: 1 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.8}}
+            transition={{ duration: 1, ease: [0.4, 0, 0.2, 1], delay: 0.8 }}
             className="
               absolute bottom-0 left-1/3 transform -translate-x-1/2 w-1/3 h-0.5
               bg-gradient-to-r from-transparent via-gray-500 to-transparent
             "
           />
-        </motion.p>
+        </p>
       </motion.div>
     </motion.div>
   )}
 </AnimatePresence>
+
 
         <div
           className={`absolute inset-0 pt-[80px] pb-24 px-4 transition-all duration-300 ${

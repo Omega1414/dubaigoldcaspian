@@ -4,16 +4,17 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 const fadeUpVariants = {
-    hidden: { opacity: 0, y: 30 }, // Daha aşağıdan başlasın
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1.2, // Bir az daha uzun
-        ease: [0.22, 1, 0.36, 1] as const, // Daha “axıcı” ease – easeOutCubic kimi
-      },
+  hidden: { opacity: 0, y: 40 }, 
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 2, 
+      ease: [0.25, 1, 0.5, 1] as const, 
     },
-  };
+  },
+};
+
 
 const FadeInWhenVisible = ({
   children,

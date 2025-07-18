@@ -54,7 +54,7 @@ const AboutSection = () => {
             <motion.h1
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
+              transition={{ duration: 1, ease: 'easeOut' }}
               className="text-white text-3xl md:text-4xl lg:text-5xl font-cormorant font-medium text-center"
             >
               {t('heroTitle')}
@@ -80,7 +80,7 @@ const AboutSection = () => {
   initial={{ opacity: 0, y: 30 }}
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true, amount: 0.5 }}
-  transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+  transition={{ duration: 1, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
   className="relative w-fit mx-auto text-2xl md:text-3xl lg:text-4xl font-cormorant font-medium text-gray-700 mb-6"
 >
   {t('historyTitle')}
@@ -88,7 +88,7 @@ const AboutSection = () => {
     initial={{ scaleX: 0, opacity: 0 }}
     whileInView={{ scaleX: 1, opacity: 1 }}
     viewport={{ once: true, amount: 0.5 }}
-    transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.7 }}
+    transition={{ duration: 1, ease: [0.4, 0, 0.2, 1], delay: 0.7 }}
     className="
       absolute -bottom-1 left-0 w-full h-0.5 origin-center
       bg-gradient-to-r from-transparent via-gray-500 to-transparent
@@ -120,7 +120,7 @@ const AboutSection = () => {
   initial={{ opacity: 0, y: 30 }}
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true, amount: 0.5 }}
-  transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+  transition={{ duration: 1, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
   className="text-2xl md:text-3xl lg:text-3xl 2xl:text-4xl font-cormorant font-medium text-gray-700 mb-6 relative inline-block"
 >
   {t('tourTitle')}
@@ -128,7 +128,7 @@ const AboutSection = () => {
     initial={{ scaleX: 0, opacity: 0 }}
     whileInView={{ scaleX: 1, opacity: 1 }}
     viewport={{ once: true, amount: 0.5 }}
-    transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.7 }}
+    transition={{ duration: 1, ease: [0.4, 0, 0.2, 1], delay: 0.7 }}
     className="
     absolute -bottom-1 left-0 w-full h-0.5 origin-center
     bg-gradient-to-r from-transparent via-gray-500 to-transparent
@@ -158,7 +158,7 @@ const AboutSection = () => {
   initial={{ opacity: 0, y: 30 }}
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true, amount: 0.5 }}
-  transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+  transition={{ duration: 1, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
   className="text-2xl md:text-3xl lg:text-3xl 2xl:text-4xl font-cormorant font-medium text-gray-700 mb-6 relative inline-block"
 >
   {t('designTitle')}
@@ -166,7 +166,7 @@ const AboutSection = () => {
     initial={{ scaleX: 0, opacity: 0 }}
     whileInView={{ scaleX: 1, opacity: 1 }}
     viewport={{ once: true, amount: 0.5 }}
-    transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.7 }}
+    transition={{ duration: 1, ease: [0.4, 0, 0.2, 1], delay: 0.7 }}
     className="
       absolute -bottom-1 left-0 w-full h-0.5 origin-center
       bg-gradient-to-r from-transparent via-gray-500 to-transparent
@@ -186,7 +186,7 @@ const AboutSection = () => {
   initial={{ opacity: 0, y: 30 }}
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true, amount: 0.5 }}
-  transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+  transition={{ duration: 1, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
   className="text-2xl md:text-3xl lg:text-4xl font-cormorant font-medium text-gray-700 mb-6 relative inline-block"
 >
   {t('transferTitle')}
@@ -194,7 +194,7 @@ const AboutSection = () => {
     initial={{ scaleX: 0, opacity: 0 }}
     whileInView={{ scaleX: 1, opacity: 1 }}
     viewport={{ once: true, amount: 0.5 }}
-    transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.7 }}
+    transition={{ duration: 1, ease: [0.4, 0, 0.2, 1], delay: 0.7 }}
     className="
       absolute -bottom-1 left-0 w-full h-0.5 origin-center
       bg-gradient-to-r from-transparent via-gray-500 to-transparent

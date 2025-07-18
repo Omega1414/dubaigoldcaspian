@@ -49,7 +49,16 @@
   },
   "contacts": {
     "title": "Contact Us",
-    "description": "Feel free to reach out to us for any inquiries or assistance."
+    "description": "Feel free to reach out to us for any inquiries or assistance.",
+    "mobileLabel": "Mobile",
+    "mobileValue": "+971569701771",
+    "whatsappLabel": "WhatsApp",
+    "whatsappValue": "Click to message us",
+    "emailLabel": "Email",
+    "emailValue": "dubaigoldbycaspian@gmail.com",
+    "addressLabel": "Address",
+    "addressValue": "Jewellery & Gemplex Building 1,\nFloor 8, Dubai, United Arab Emirates",
+    "followUs": "Follow us"
   },
   "navbar": {
     "home": "Home",

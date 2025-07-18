@@ -75,8 +75,8 @@ const HomeSection = () => {
       setTimeout(() => {
         setCurrentTextIndex((prevIndex) => (prevIndex + 1) % textKeys.length)
         setFade(true)
-      }, 500)
-    }, 5000)
+      }, 1200)
+    }, 6000)
 
     return () => clearInterval(interval)
   }, [isPlaying, isMounted])

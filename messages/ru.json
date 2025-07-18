@@ -50,7 +50,16 @@
   
     "contacts": {
       "title": "Свяжитесь с нами",
-      "description": "Не стесняйтесь обращаться к нам по любым вопросам или за помощью."
+  "description": "Вы можете связаться с нами любым удобным способом ниже.",
+  "mobileLabel": "Мобильный",
+  "mobileValue": "+971569701771",
+  "whatsappLabel": "WhatsApp",
+  "whatsappValue": "Нажмите, чтобы открыть чат",
+  "emailLabel": "Электронная почта",
+  "emailValue": "dubaigoldbycaspian@gmail.com",
+  "addressLabel": "Адрес",
+  "addressValue": "Jewellery & Gemplex Building 1,\n8 этаж, Дубай, Объединённые Арабские Эмираты",
+  "followUs": "Подпишитесь на нас"
     },
     "navbar": {
       "home": "Главная",
