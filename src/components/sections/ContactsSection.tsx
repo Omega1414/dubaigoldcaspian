@@ -2,112 +2,135 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { FaWhatsapp, FaInstagram, FaYoutube, FaEnvelope, FaPhone } from 'react-icons/fa';
 import { RiMapPin2Fill } from 'react-icons/ri';
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
+import FadeInWhenVisible from '../FadeIn';
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: -20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
-const textVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.2 } },
-};
+const Map = dynamic(() => import('../Map'), { ssr: false });
 
 const ContactsSection = () => {
-  const Map = dynamic(() => import('../Map'), { ssr: false });
-  const t = useTranslations('contacts'); 
+  const t = useTranslations('contacts');
   return (
     <section
       id="contacts"
-      className="pt-24 px-4 sm:px-6 lg:px-8 bg-white min-h-screen overflow-hidden"
+      className="pb-5 xl:pb-0 pt-16 sm:pt-20 lg:pt-24 px-4 sm:px-6 lg:px-8 bg-white min-h-screen overflow-hidden"
     >
       <div className="max-w-6xl mx-auto">
-        {/* Başlıq */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={sectionVariants}
-          className="text-center"
-        >
-          <h2 className="text-3xl sm:text-4xl md:text-4xl font-cormorant font-medium text-gray-700 mb-2 lg:mb-6">
-          {t('title')}
+        {/* Header */}
+        <FadeInWhenVisible className="text-center mb-8 lg:mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-cormorant font-medium text-gray-700 mb-2 lg:mb-4">
+            {t('title')}
           </h2>
-          <motion.p
-            variants={textVariants}
-            className="font-cormorant font-medium text-gray-700 text-lg sm:text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto px-4 relative"
-          >
-                {t('description')}
-            <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/3 h-0.5 bg-gradient-to-r from-transparent via-gray-500 to-transparent" />
-          </motion.p>
-        </motion.div>
+          <div className="relative">
+            <p className="font-cormorant font-medium text-gray-700 text-lg sm:text-xl lg:text-2xl max-w-3xl mx-auto px-4 pb-4 lg:pb-6">
+              {t('description')}
+            </p>
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 lg:w-24 h-0.5 bg-gradient-to-r from-transparent via-gray-500 to-transparent" />
+          </div>
+        </FadeInWhenVisible>
 
-        {/* Kontent Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-5 lg:mt-16 2xl:mt-[90px] items-start text-gray-700">
-          {/* Sol tərəf: Əlaqə */}
-          <div className="flex flex-col items-center md:items-start w-full">
-            {/* Sosial Düymələr */}
-            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 mb-8 w-full justify-center items-center md:justify-start">
-              {[
-                {
-                  href: 'https://api.whatsapp.com/message/KXDR3KZ7YZG7C1?autoload=1&app_absent=0',
-                  icon: <FaWhatsapp className="w-4 h-4 mr-2" />,
-                  text: 'WhatsApp',
-                },
-                {
-                  href: 'https://www.instagram.com/dubaigoldcaspian/',
-                  icon: <FaInstagram className="w-4 h-4 mr-2" />,
-                  text: 'Instagram',
-                },
-                {
-                  href: 'https://www.youtube.com/@dubaigold3249',
-                  icon: <FaYoutube className="w-4 h-4 mr-2" />,
-                  text: 'YouTube',
-                },
-              ].map(({ href, icon, text }, idx) => (
+        {/* Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+          {/* Left: Contact Information */}
+          <FadeInWhenVisible className="space-y-6 lg:space-y-8">
+            {/* Contact Details */}
+            <div className="space-y-4 lg:space-y-6">
+              {/* Mobile Number */}
+              <div className="group">
+                <div className="relative overflow-hidden flex items-center p-4 rounded-lg border border-gray-200 hover:border-gray-400 transition-all duration-500 hover:shadow-lg cursor-pointer">
+                  <div className="absolute inset-0 bg-gray-700 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
+                  <div className="relative z-10 flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-gray-600 transition-colors duration-500">
+                    <FaPhone className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors duration-500" />
+                  </div>
+                  <div className="relative z-10 ml-3 lg:ml-4 flex-1 min-w-0">
+                    <p className="text-xs sm:text-sm font-medium font-montserrat text-gray-700 uppercase mb-1 group-hover:text-white transition-colors duration-500">Mobile</p>
+                    <p className="text-base sm:text-lg font-work-sans text-gray-700 group-hover:text-white transition-colors duration-500">+971569701771</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* WhatsApp */}
+              <div className="group">
                 <Link
-                  key={idx}
-                  href={href}
+                  href="https://api.whatsapp.com/message/KXDR3KZ7YZG7C1?autoload=1&app_absent=0"
                   target="_blank"
-                  className="relative overflow-hidden group flex items-center px-4 py-2 border border-gray-300 rounded-full w-fit text-sm sm:text-base"
+                  className="relative overflow-hidden flex items-center p-4 rounded-lg border border-gray-200 hover:border-gray-400 transition-all duration-500 hover:shadow-lg "
                 >
-                  <span className="absolute inset-0 bg-gray-700 transform -translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-in-out z-0" />
-                  <span className="relative z-10 flex items-center text-gray-800 group-hover:text-white transition-colors duration-300">
-                    {icon}
-                    <span className="font-medium">{text}</span>
-                  </span>
+                  <div className="absolute inset-0 bg-gray-700 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
+                  <div className="relative z-10 flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-gray-600 transition-colors duration-500">
+                    <FaWhatsapp className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors duration-500" />
+                  </div>
+                  <div className="relative z-10 ml-3 lg:ml-4 flex-1 min-w-0">
+                    <p className="text-xs sm:text-sm font-medium font-montserrat text-gray-700 uppercase mb-1 group-hover:text-white transition-colors duration-500">WhatsApp</p>
+                    <p className="text-base sm:text-lg font-work-sans text-gray-700 group-hover:text-white transition-colors duration-500">Message us</p>
+                  </div>
                 </Link>
-              ))}
+              </div>
+
+              {/* Email */}
+              <div className="group">
+                <div className="relative overflow-hidden flex items-center p-4 rounded-lg border border-gray-200 hover:border-gray-400 transition-all duration-500 hover:shadow-lg cursor-pointer">
+                  <div className="absolute inset-0 bg-gray-700 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
+                  <div className="relative z-10 flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-gray-600 transition-colors duration-500">
+                    <FaEnvelope className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors duration-500" />
+                  </div>
+                  <div className="relative z-10 ml-3 lg:ml-4 flex-1 min-w-0">
+                    <p className="text-xs sm:text-sm font-medium font-montserrat text-gray-700 uppercase mb-1 group-hover:text-white transition-colors duration-500">Email</p>
+                    <p className="text-base sm:text-lg font-work-sans text-gray-700 group-hover:text-white transition-colors duration-500 break-all sm:break-normal">dubaigoldbycaspian@gmail.com</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Address */}
+              <div className="group">
+                <div className="relative overflow-hidden flex items-start p-4 rounded-lg border border-gray-200 hover:border-gray-400 transition-all duration-500 hover:shadow-lg cursor-pointer">
+                  <div className="absolute inset-0 bg-gray-700 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
+                  <div className="relative z-10 flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-gray-600 transition-colors duration-500 mt-1">
+                    <RiMapPin2Fill className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors duration-500" />
+                  </div>
+                  <div className="relative z-10 ml-3 lg:ml-4 flex-1 min-w-0">
+                    <p className="text-xs sm:text-sm font-medium font-montserrat text-gray-700 uppercase mb-1 group-hover:text-white transition-colors duration-500">Address</p>
+                    <p className="text-base sm:text-lg font-work-sans text-gray-700 leading-relaxed group-hover:text-white transition-colors duration-500">
+                      Jewellery & Gemplex Building 1,<br />
+                      Floor 8, Dubai, United Arab Emirates
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-          
-            <div className="space-y-4 2xl:space-y-6 mt-0 2xl:mt-10 w-full text-left text-md sm:text-base md:text-lg font-work-sans">
-  <p className="flex items-center">
-    <FaEnvelope className="w-5 h-5 mr-3 text-gray-600" />
-    dubaigoldbycaspian@gmail.com
-  </p>
-  <p className="flex items-center">
-    <FaPhone className="w-5 h-5 mr-3 text-gray-600" />
-    +971569701771
-  </p>
-  <p className="flex items-start">
-    <RiMapPin2Fill className="w-5 h-5 mr-3 mt-1 text-gray-600" />
-    <span>
-      Jewellery & Gemplex Building 1,
-      <br /> Floor 8, Dubai, United Arab Emirates
-    </span>
-  </p>
-</div>
-          </div>
+            {/* Social Media */}
+            <div className="pt-2 lg:pt-4">
+              <h3 className="text-lg sm:text-xl font-cormorant font-medium text-gray-700 mb-3 lg:mb-4 text-center lg:text-left">
+                Follow us
+              </h3>
+              <div className="flex gap-3 lg:gap-4 justify-center lg:justify-start">
+                <Link
+                  href="https://www.instagram.com/dubaigoldcaspian/"
+                  target="_blank"
+                  className="group w-11 h-11 sm:w-12 sm:h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-700 transition-all duration-300 hover:shadow-lg transform hover:scale-105"
+                >
+                  <FaInstagram className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 group-hover:text-white transition-colors duration-300" />
+                </Link>
+                <Link
+                  href="https://www.youtube.com/@dubaigold3249"
+                  target="_blank"
+                  className="group w-11 h-11 sm:w-12 sm:h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-700 transition-all duration-300 hover:shadow-lg transform hover:scale-105"
+                >
+                  <FaYoutube className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 group-hover:text-white transition-colors duration-300" />
+                </Link>
+              </div>
+            </div>
+          </FadeInWhenVisible>
 
-          
-          <div className="w-full h-64 sm:h-72 md:h-80 lg:h-60 2xl:h-80 rounded-xl overflow-hidden shadow-xl border border-gray-200">
-            <Map />
-          </div>
+          {/* Right: Map */}
+          <FadeInWhenVisible className="w-full order-first lg:order-last">
+            <div className="h-64 sm:h-80 md:h-96 lg:h-[450px] xl:h-[500px] rounded-xl lg:rounded-2xl overflow-hidden shadow-xl lg:shadow-2xl border border-gray-200 bg-gray-50">
+              <Map />
+            </div>
+          </FadeInWhenVisible>
         </div>
       </div>
     </section>

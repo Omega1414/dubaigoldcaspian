@@ -3,5 +3,4 @@
 
 tomorrow:
 finish contacts (design)
-check ru
-test resp
+add moving bg to home text and pause with video

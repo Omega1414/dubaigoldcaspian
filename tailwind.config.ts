@@ -28,6 +28,7 @@ const config: Config = {
         montserrat: ['var(--font-montserrat)', 'sans-serif'],
         poppins: ['var(--font-poppins)', 'sans-serif'],
         'work-sans': ['var(--font-work-sans)', 'sans-serif'],
+        cinzel: ['var(--font-cinzel)', 'sans-serif'],
     
       },
     },
