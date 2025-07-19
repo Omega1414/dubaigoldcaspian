@@ -55,7 +55,7 @@ const CollectionSection = () => {
       },
       on: {
         closing: () => {
-          console.log('Fancybox bağlanır – carousel qalır yerində');
+          console.log('Fancybox closed');
         },
       },
     } as any);

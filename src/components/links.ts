@@ -106,13 +106,7 @@ export const COLLECTION_LINKS = {
     about: '/about',
     collections: '/collections',
     contact: '/contact',
-    // Add other navigation links
+  
   };
   
-  export const SOCIAL_LINKS = {
-    facebook: 'https://facebook.com/yourpage',
-    instagram: 'https://instagram.com/yourpage',
-    // Add other social links
-  };
-  
-  // Add more categories as needed
+ 

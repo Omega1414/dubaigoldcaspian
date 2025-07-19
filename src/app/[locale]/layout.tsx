@@ -97,7 +97,7 @@ export async function generateMetadata(props: Omit<Props, 'children'>) {
       title: t('title'),
       description: t('description'),
       url: baseUrl,
-      siteName: 'Sayt Adı Burada',
+      siteName: 'DubaiGold',
       images: [
         {
           url: image,

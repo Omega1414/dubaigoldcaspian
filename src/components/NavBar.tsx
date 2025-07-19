@@ -48,13 +48,13 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="w-[110px] h-auto"> {/* Adjust height/width as needed */}
+        <div className="w-[110px] h-auto"> 
   <Link href="/">
     <Image
       src="/logo.png"
       alt="MyLogo"
-      width={200}  // Set your desired display width
-      height={48}  // Set your desired display height (maintain aspect ratio)
+      width={200} 
+      height={48}  
       className={`h-full w-auto transition-all duration-300 ${
         scrolled ? '' : 'invert brightness-0'
       }`}

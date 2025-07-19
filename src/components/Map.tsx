@@ -23,7 +23,7 @@ const Map = () => {
 
     new maplibregl.Marker({ color: '#C084FC' })
       .setLngLat([55.13582628336014, 25.05864911447676])
-      .setPopup(popup) // <-- Əlavə olunur
+      .setPopup(popup) 
       .addTo(map);
 
     return () => map.remove();

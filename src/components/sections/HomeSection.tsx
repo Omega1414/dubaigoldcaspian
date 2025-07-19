@@ -66,7 +66,7 @@ const HomeSection = () => {
     }
   }, [isUserPaused, isMounted])
 
-  // Text transition with fade effect, only when video is playing
+  
   useEffect(() => {
     if (!isMounted || !isPlaying) return
 
@@ -84,7 +84,6 @@ const HomeSection = () => {
   if (!isMounted) {
     return (
       <div id="home" className="relative w-full h-screen">
-        {/* Simple static fallback while hydrating */}
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40 z-10" />
       </div>
     )
@@ -118,15 +117,12 @@ const HomeSection = () => {
             fade ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
           } relative max-w-screen mx-4`}
         >
-          {/* Glassmorphism Background with Gradients - Now hydration-safe */}
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 via-white/5 to-transparent  border border-white/20 shadow-2xl overflow-hidden">
-            {/* Animated gradient overlay - now using opacity instead of animate-pulse */}
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/10 via-purple-500/10  to-pink-500/10 opacity-60" />
             
             {/* Subtle inner glow */}
             <div className="absolute inset-0 rounded-2xl shadow-inner shadow-white/10" />
             
-            {/* Corner accents - now simpler implementation */}
             <div className="absolute top-2 left-2 right-2 bottom-2 border border-white/10 rounded-lg pointer-events-none">
               <div className="absolute top-0 left-0 w-6 h-6 border-l-2 border-t-2 border-white/30 rounded-tl-lg" />
               <div className="absolute top-0 right-0 w-6 h-6 border-r-2 border-t-2 border-white/30 rounded-tr-lg" />

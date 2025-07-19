@@ -16,7 +16,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 100); // 1 saniyəlik fake loading (realda bunu collection section statusuna bağlaya bilərsən)
+    }, 100); 
 
     return () => clearTimeout(timer);
   }, []);
