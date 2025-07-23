@@ -53,26 +53,30 @@ const ContactsSection = () => {
             <div className="space-y-4 lg:space-y-6">
               {/* Mobile */}
               <div className="group">
-                <div className="relative overflow-hidden flex items-center p-4 rounded-lg border border-gray-200 hover:border-gray-400 transition-all duration-1000 hover:shadow-lg cursor-pointer">
-                  <div className="absolute inset-0 bg-gray-700 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-in-out" />
-                  <div className="relative z-10 flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-gray-600 transition-colors duration-1000">
-                    <FaPhone className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors duration-1000" />
-                  </div>
-                  <div className="relative z-10 ml-3 lg:ml-4 flex-1 min-w-0">
-                    <p className="text-xs sm:text-sm font-medium font-montserrat text-gray-700 uppercase mb-1 group-hover:text-white transition-colors duration-1000">
-                      {t('mobileLabel')}
-                    </p>
-                    <p className="text-base sm:text-md font-montserrat text-gray-700 group-hover:text-white transition-colors duration-1000">
-                      {t('mobileValue')}
-                    </p>
-                  </div>
-                </div>
-              </div>
+  <a
+    href="tel:+971569701771"
+    className="relative overflow-hidden flex items-center p-4 rounded-lg border border-gray-200 hover:border-gray-400 transition-all duration-1000 hover:shadow-lg cursor-pointer"
+  >
+    <div className="absolute inset-0 bg-gray-700 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-in-out" />
+    <div className="relative z-10 flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-gray-600 transition-colors duration-1000">
+      <FaPhone className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors duration-1000" />
+    </div>
+    <div className="relative z-10 ml-3 lg:ml-4 flex-1 min-w-0">
+      <p className="text-xs sm:text-sm font-medium font-montserrat text-gray-700 uppercase mb-1 group-hover:text-white transition-colors duration-1000">
+        {t('mobileLabel')}
+      </p>
+      <p className="text-base sm:text-md font-montserrat text-gray-700 group-hover:text-white transition-colors duration-1000">
+        {t('mobileValue')}
+      </p>
+    </div>
+  </a>
+</div>
+
 
               {/* WhatsApp */}
               <div className="group">
-                <Link
-                  href="https://api.whatsapp.com/message/KXDR3KZ7YZG7C1?autoload=1&app_absent=0"
+              <Link
+                  href="https://wa.me/971569701771" 
                   target="_blank"
                   className="relative overflow-hidden flex items-center p-4 rounded-lg border border-gray-200 hover:border-gray-400 transition-all duration-1000 hover:shadow-lg"
                 >
@@ -93,21 +97,25 @@ const ContactsSection = () => {
 
               {/* Email */}
               <div className="group">
-                <div className="relative overflow-hidden flex items-center p-4 rounded-lg border border-gray-200 hover:border-gray-400 transition-all duration-1000 hover:shadow-lg cursor-pointer">
-                  <div className="absolute inset-0 bg-gray-700 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-in-out" />
-                  <div className="relative z-10 flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-gray-600 transition-colors duration-1000">
-                    <FaEnvelope className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors duration-1000" />
-                  </div>
-                  <div className="relative z-10 ml-3 lg:ml-4 flex-1 min-w-0">
-                    <p className="text-xs sm:text-sm font-medium font-montserrat text-gray-700 uppercase mb-1 group-hover:text-white transition-colors duration-1000">
-                      {t('emailLabel')}
-                    </p>
-                    <p className="text-base sm:text-md font-montserrat text-gray-700 group-hover:text-white transition-colors duration-1000 break-all sm:break-normal">
-                      {t('emailValue')}
-                    </p>
-                  </div>
-                </div>
-              </div>
+  <a
+    href="mailto:info@dubaigoldcaspian.com"
+    className="relative overflow-hidden flex items-center p-4 rounded-lg border border-gray-200 hover:border-gray-400 transition-all duration-1000 hover:shadow-lg cursor-pointer"
+  >
+    <div className="absolute inset-0 bg-gray-700 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-in-out" />
+    <div className="relative z-10 flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-gray-600 transition-colors duration-1000">
+      <FaEnvelope className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors duration-1000" />
+    </div>
+    <div className="relative z-10 ml-3 lg:ml-4 flex-1 min-w-0">
+      <p className="text-xs sm:text-sm font-medium font-montserrat text-gray-700 uppercase mb-1 group-hover:text-white transition-colors duration-1000">
+        {t('emailLabel')}
+      </p>
+      <p className="text-base sm:text-md font-montserrat text-gray-700 group-hover:text-white transition-colors duration-1000 break-all sm:break-normal">
+        {t('emailValue')}
+      </p>
+    </div>
+  </a>
+</div>
+
 
               {/* Address */}
               <div className="group">

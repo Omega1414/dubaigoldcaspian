@@ -15,16 +15,30 @@ const Map = () => {
       zoom: 16,
     });
 
-    const popup = new maplibregl.Popup({ offset: 25 }).setHTML(`
+    // Create marker and popup separately
+    const marker = new maplibregl.Marker({ color: '#C084FC' })
+      .setLngLat([55.13582628336014, 25.05864911447676])
+      .addTo(map);
+
+    const popup = new maplibregl.Popup({
+      offset: 25,
+      closeOnClick: false,  // Keep popup open when clicking elsewhere
+      closeButton: true    // Show close button
+    }).setHTML(`
       <a href="https://www.google.com/maps?q=25.05864911447676,55.13582628336014" target="_blank" rel="noopener noreferrer">
         Open in Google Maps
       </a>
     `);
 
-    new maplibregl.Marker({ color: '#C084FC' })
-      .setLngLat([55.13582628336014, 25.05864911447676])
-      .setPopup(popup) 
-      .addTo(map);
+    // Add popup to marker but prevent automatic panning
+    marker.setPopup(popup);
+
+    // Open popup immediately but without animation/panning
+    map.on('load', () => {
+      // This is the key - prevents map from panning to show popup
+      popup.addTo(map);
+      popup.setLngLat([55.13582628336014, 25.05864911447676]);
+    });
 
     return () => map.remove();
   }, []);
