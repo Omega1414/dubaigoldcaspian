@@ -312,7 +312,7 @@ const CollectionSection = () => {
             <div className="max-w-7xl 2xl:max-w-full mx-auto h-full flex flex-col">
               <button
                 onClick={handleBackClick}
-                className="mb-6 md:mb-8 flex items-center text-lg 2xl:text-2xl font-cormorant font-medium hover:underline transition-all"
+                className="mb-6 md:mb-8 flex items-center text-lg 2xl:text-2xl font-cormorant font-medium hover:underline transition-all text-black"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
