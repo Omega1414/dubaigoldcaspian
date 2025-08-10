@@ -162,7 +162,7 @@ const ContactsSection = () => {
 
           {/* Right: Map */}
           <FadeInWhenVisible className="w-full order-first lg:order-last">
-            <div className="h-64 sm:h-80 md:h-96 lg:h-[450px] xl:h-[500px] rounded-xl lg:rounded-2xl overflow-hidden shadow-xl lg:shadow-2xl border border-gray-200 bg-gray-50">
+            <div className="h-64 sm:h-80 md:h-96 lg:h-[450px] xl:h-[500px] rounded-xl lg:rounded-2xl overflow-hidden shadow-xl lg:shadow-2xl border border-gray-200 bg-gray-50 text-black">
               <Map />
             </div>
           </FadeInWhenVisible>
