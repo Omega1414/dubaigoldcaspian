@@ -42,7 +42,7 @@ export default function Navbar() {
       className={`w-full px-6 py-2 fixed top-0 z-50 transition-all ease-in-out duration-300
         ${scrolled
           ? 'opacity-90 backdrop-blur-md shadow-sm bg-white/70 text-gray-700'
-          : 'opacity-100 bg-transparent text-white'
+          : 'opacity-100 bg-gray-900/20 text-white'
         }
         `}
     >
@@ -63,20 +63,36 @@ export default function Navbar() {
   </Link>
 </div>
 
-        {/* Desktop Nav Links */}
-        <div className="hidden md:flex gap-10 text-[20px]   font-medium mt-1 font-cormorant">
 
-        {['home', 'collections', 'company-craft', 'contacts'].map((section) => (
-  <Link 
-    key={section}
-    href={`#${section}`}
-    onClick={() => handleSectionClick(section)}
-    className={`${scrolled ? "hover:text-gray-500" : "hover:text-gray-300"} transition`}
-  >
-    {t(section)}
-  </Link>
-))}
-        </div>
+{/* Desktop Nav Links */}
+  <div className="hidden md:flex gap-10 text-[20px] font-light  mt-1 font-rokkitt">
+    {['home', 'collections', 'company-craft', 'contacts'].map((section) => (
+      <motion.div
+        key={section}
+        className="relative inline-block"
+        whileHover="hover"
+      >
+        <Link
+          href={`#${section}`}
+          onClick={() => handleSectionClick(section)}
+          className={`${scrolled ? "text-gray-700 hover:text-gray-500" : "text-gray-200 hover:text-gray-100"} transition-colors duration-300`}
+        >
+          {t(section)}
+        </Link>
+        <motion.span
+          variants={{
+            hover: { scaleX: 1, opacity: 1 }
+          }}
+          initial={{ scaleX: 0, opacity: 0 }}
+          transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+          className={`
+            absolute -bottom-1 left-0 w-full h-0.5 origin-center
+            bg-gradient-to-r from-transparent ${scrolled ? "via-gray-700" : "via-white"}  to-transparent
+          `}
+        />
+      </motion.div>
+    ))}
+  </div>
 
         {/* Right Side Controls */}
         <div className="flex items-center gap-4">

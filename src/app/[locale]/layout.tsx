@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Locale, hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ReactNode } from 'react';
-import { Cinzel, Cormorant_Garamond, DM_Serif_Display, Inter, Josefin_Sans, Montserrat, Playfair_Display, Poppins, Raleway, Work_Sans } from 'next/font/google';
+import { Cinzel, Cormorant_Garamond, DM_Serif_Display, Josefin_Sans, Montserrat, Playfair_Display, Poppins, Raleway, Rokkitt, Work_Sans } from 'next/font/google';
 import { routing } from '../../i18n/routing';
 import '../globals.css';
 
@@ -64,6 +64,12 @@ const cinzel = Cinzel({
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-cinzel',
+});
+const rokkitt = Rokkitt({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'], // İstədiyin ağırlıqları buraya yaza bilərsən
+  variable: '--font-rokkitt',
+  display: 'swap',
 });
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -129,7 +135,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale}  className={`${cormorant.variable} ${josefin.variable} ${dmSerif.variable} ${raleway.variable}
-     ${playfair.variable} ${montserrat.variable} ${poppins.variable} ${workSans.variable} ${cinzel.variable} antialiased`}>
+     ${playfair.variable} ${montserrat.variable} ${poppins.variable} ${workSans.variable} ${cinzel.variable} ${rokkitt.variable} antialiased`}>
       <body >
         <NextIntlClientProvider locale={locale}>
      {children}

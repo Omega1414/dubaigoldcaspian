@@ -29,6 +29,7 @@ const config: Config = {
         poppins: ['var(--font-poppins)', 'sans-serif'],
         'work-sans': ['var(--font-work-sans)', 'sans-serif'],
         cinzel: ['var(--font-cinzel)', 'sans-serif'],
+          rokkitt: ['var(--font-rokkitt)', 'serif'],
     
       },
     },
