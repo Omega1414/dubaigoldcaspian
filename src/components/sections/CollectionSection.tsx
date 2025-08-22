@@ -250,7 +250,7 @@ const CollectionSection = () => {
             <div
               className={`
                 absolute font-cormorant font-medium antialiased bottom-3 2xl:bottom-6 left-1/2 transform -translate-x-1/2
-                text-gray-700 text-2xl md:text-2xl lg:text-2xl 2xl:text-3xl text-center
+                text-gray-700 text-xl md:text-2xl lg:text-2xl 2xl:text-3xl text-center
                 transition-all duration-500
                 ${hoveredItem === item.id ? '-translate-y-5 lg:-translate-y-7 2xl:-translate-y-8' : ''}
               `}
@@ -261,7 +261,7 @@ const CollectionSection = () => {
             <div
               className={`
                 absolute font-cormorant font-medium antialiased bottom-3 2xl:bottom-6 left-1/2 transform -translate-x-1/2
-                text-gray-700 w-full text-md lg:text-xl 2xl:text-2xl text-center
+                text-gray-700 w-full text-sm lg:text-xl 2xl:text-2xl text-center
                 transition-all duration-500
                 ${hoveredItem === item.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
               `}
